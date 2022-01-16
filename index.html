@@ -67,6 +67,8 @@
 				<div>
 					<button id="ksbf" type="button" class="btn btn-success btn-lg btn-block"
 						onclick="dihejk()">#开始播放#</button>
+					<button id="ckbf" type="button" class="btn btn-success btn-lg btn-block"
+						onclick="javascript:dlck()">#窗口播放#</button>
 					<!-- <button id="qpbf" type="button" class="btn btn-success btn-lg btn-block"
                     onclick="dihejk2()">#全屏放映#</button> -->
 					<button id="qpbf" type="button" class="btn btn-success btn-lg btn-block" onclick="dihejk2()"
@@ -77,33 +79,38 @@
 						onclick="javascript:call()">#分享本站#</button>
 					<button id="gzfk" type="button" class="btn btn-success btn-lg btn-block"
 						onclick="javascript:gzfk()">#故障反馈#</button>
-					<button id="gzfk" type="button" class="btn btn-success btn-lg btn-block"
+					<button id="zzbz" type="button" class="btn btn-success btn-lg btn-block"
 						onclick="javascript:dihejk3()">#赞助本站#</button>
 				</div>
-				<div class="unit-100">
-					<div class="language">
-						<a class="btn2 btn-outline2" href="https://v.qq.com/" target="_blank">腾讯视频</a>
-						<a class="btn2 btn-outline2" href="https://www.iqiyi.com/" target="_blank">爱奇艺</a>
-						<a class="btn2 btn-outline2" href="https://www.mgtv.com/" target="_blank">芒果TV</a>
-						<a class="btn2 btn-outline2" href="https://www.youku.com/" target="_blank">优酷视频</a>
-						<a class="btn2 btn-outline2" href="https://www.1905.com/" target="_blank">M1905</a>
-						<a class="btn2 btn-outline2" href="https://www.ixigua.com/" target="_blank">西瓜视频</a>
-						<a class="btn2 btn-outline2" href="https://www.cctv.com/" target="_blank">CCTV</a>
-						<br />
-						<a class="btn2 btn-outline2" href="https://www.le.com/" target="_blank">乐视视频</a>
-						<a class="btn2 btn-outline2" href="https://tv.sohu.com/" target="_blank">搜狐视频</a>
-						<a class="btn2 btn-outline2" href="https://www.pptv.com/" target="_blank">PPTV聚力</a>
-						<a class="btn2 btn-outline2" href="https://www.bilibili.com/" target="_blank">哔哩哔哩</a>
-						<a class="btn2 btn-outline2" href="https://www.migu.cn/" target="_blank">咪咕视频</a>
-						<a class="btn2 btn-outline2" href="https://www.douyin.com/" target="_blank">抖音</a>
-						<a class="btn2 btn-outline2" href="https://www.acfun.cn/" target="_blank">AcFun</a>
-					</div>
-					<br>
-				</div>
+				<br />
 				<table class="table table-bordered">
 					<tr>
 						<td>
-							<h3 class="h3a">使用说明：</h3>
+							<h3 class="h3a">快速访问:</h3>
+							<div class="unit-100">
+								<div class="language">
+									<a class="btn2 btn-outline2" href="https://v.qq.com/" target="_blank">腾讯视频</a>
+									<a class="btn2 btn-outline2" href="https://www.iqiyi.com/" target="_blank">爱奇艺</a>
+									<a class="btn2 btn-outline2" href="https://www.mgtv.com/" target="_blank">芒果TV</a>
+									<a class="btn2 btn-outline2" href="https://www.youku.com/" target="_blank">优酷视频</a>
+									<a class="btn2 btn-outline2" href="https://www.1905.com/" target="_blank">M1905</a>
+									<a class="btn2 btn-outline2" href="https://www.ixigua.com/" target="_blank">西瓜视频</a>
+									<a class="btn2 btn-outline2" href="https://www.cctv.com/" target="_blank">CCTV</a>
+									<a class="btn2 btn-outline2" href="https://www.le.com/" target="_blank">乐视视频</a>
+									<a class="btn2 btn-outline2" href="https://tv.sohu.com/" target="_blank">搜狐视频</a>
+									<a class="btn2 btn-outline2" href="https://www.pptv.com/" target="_blank">PPTV聚力</a>
+									<a class="btn2 btn-outline2" href="https://www.bilibili.com/"
+										target="_blank">哔哩哔哩</a>
+									<a class="btn2 btn-outline2" href="https://www.migu.cn/" target="_blank">咪咕视频</a>
+									<a class="btn2 btn-outline2" href="https://www.douyin.com/" target="_blank">抖音</a>
+									<a class="btn2 btn-outline2" href="https://www.acfun.cn/" target="_blank">AcFun</a>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h3 class="h3a">使用说明:</h3>
 							<div class="unit-100">
 								<div class="language1">
 									<p>第&nbsp;1&nbsp;步：进入各大视频网站，找到想要观看的VIP视频vip会员，然后复制链接（浏览器上的视频地址）。</p>
@@ -115,31 +122,31 @@
 					</tr>
 					<tr>
 						<td>
-							<h3 class="h3a">温馨提示：</h3>
+							<h3 class="h3a">窗口播放:</h3>
 							<div class="unit-100">
-								<div class="language1">
-									<p>1.本站视频源于互联网视频网站，仅供学习交流。已支持以上网站视频播放(包含VIP电影vip会员)</p>
-									<p>2.本站暂不考虑开放视频下载功能</p>
+								<div class="language">
+									<p>您可以通过此功能开启多线程播放模式，该功能允许您使用多个独立的窗口观看不同的内容！您可以自由的将每个窗口最小化或者最大化！</p>
+									<p style="color: red;">注意：窗口播放模式中，视频播放器内置的全屏播放功能将失效！</p>
 								</div>
 							</div>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<h3 class="h3a">知识产权：</h3>
+							<h3 class="h3a">知识产权:</h3>
 							<div class="unit-100">
 								<div class="language1">
 									<p>1.本站不存储任何影视资源，也不做商业运营，只提供影视检索服务</p>
 									<p>2.本站使用到的所有算法，均来自国外技术论坛以及Github开源社区</p>
-									<p>3.本站仅供互联网开发测试，无实质性服务</p>
+									<p>3.本站仅供互联网开发测试和学习交流，无实质性服务</p>
 								</div>
 							</div>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<h3 class="h3a">视频搜索：</h3>
-							<div class="language1">
+							<h3 class="h3a">视频搜索:</h3>
+							<div class="language">
 								<p>想要找会员电影免费看，下方搜索电影名，就能免费观看vip会员vip付费电影电视剧。</p>
 							</div>
 							<div id="homeso">
@@ -155,7 +162,7 @@
 					</tr>
 					<tr>
 						<td>
-							<h3 class="h3a">友情链接：</h3>
+							<h3 class="h3a">友情链接:</h3>
 							<div class="unit-100">
 								<div class="language">
 									<a target="_blank" class="btn2 btn-outline2" title="赵彤刚的博客"
@@ -176,13 +183,14 @@
 				<div class="panel-body" style="text-align: center;">
 					<div class="container-fluid">
 						<p>广告合作:2585649532@qq.com</p>
-						<p><a href="./" title="影视解析">影视解析</a>(v1.7.5) © Powered By <a href="https://my.heheda.top/"
+						<p><a href="./" title="影视解析">影视解析</a>(v1.8.0) © Powered By <a href="https://my.heheda.top/"
 								target="_blank" title="赵彤刚的小屋">赵彤刚</a></p>
 					</div>
 				</div>
 			</div>
 			<script src="./js/jquery-3.5.1.min.js"></script>
 			<script src="./js/bootstrap.min.js"></script>
+			<!--弹窗组件-->
 			<script src="./lib/layer/layer.js"></script>
 			<!--PWA渐进式应用配置-->
 			<script type="module">
@@ -229,18 +237,19 @@
 				//         document.getElementById("ksbf").disabled = false;
 				//     }
 				// }
-
+				//按钮可选控制
 				function play() {
 					var diz = document.getElementById("url").value;
 					diz = diz.replace(/(^\s*)|(\s*$)/g, '');
 					var daz = document.getElementById("ksbf");
+					var dck = document.getElementById("ckbf");
 					// var dcz = document.getElementById("qpbf");
 					if (diz != "" || diz == "null") {
 						daz.disabled = false;
-						// dcz.disabled = false;
+						dck.disabled = false;
 					} else {
 						daz.disabled = true;
-						// dcz.disabled = true;
+						dck.disabled = true;
 					}
 				}
 				setInterval("play()", 100);
@@ -250,8 +259,46 @@
 						type: 1,
 						title: false,
 						shade: 0.8,
+						area: 'auto',
+						maxWidth: 500,
 						shadeClose: true,
-						content: '<img src="./image/zsm.png" style="width: 500px;"/>'
+						content: '<img src="./image/zsm.png" style="width: 100%;"/>'
+					});
+				}
+				// 独立窗口
+				function dlck() {
+					var diz = document.getElementById("url").value;
+					diz = diz.replace(/(^\s*)|(\s*$)/g, '');
+					if (diz != "" || diz == "null") {
+						var jkurl = document.getElementById("jk");
+						var jk = document.getElementById("jk").selectedIndex;
+						var jkv = jkurl.options[jk].value;
+						var cljurl = document.getElementById("player");
+						layer.open({
+							type: 2,
+							title: '窗口播放',
+							shadeClose: true,
+							shade: false,
+							maxmin: true,
+							moveOut: true,
+							minStack: true,
+							area: ['800px', '500px'],
+							content: jkv + diz
+						});
+					} else {
+						layer.msg("您必须输入视频地址！");
+					}
+				}
+
+				function dlck2() {
+					layer.open({
+						type: 2,
+						title: false,
+						shadeClose: true,
+						shade: false,
+						maxmin: true,
+						area: ['893px', '600px'],
+						content: 'https://www.baidu.com/'
 					});
 				}
 				//故障反馈
