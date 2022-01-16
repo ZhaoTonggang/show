@@ -77,6 +77,8 @@
 						onclick="javascript:call()">#分享本站#</button>
 					<button id="gzfk" type="button" class="btn btn-success btn-lg btn-block"
 						onclick="javascript:gzfk()">#故障反馈#</button>
+					<button id="gzfk" type="button" class="btn btn-success btn-lg btn-block"
+						onclick="javascript:dihejk3()">#赞助本站#</button>
 				</div>
 				<div class="unit-100">
 					<div class="language">
@@ -242,6 +244,16 @@
 					}
 				}
 				setInterval("play()", 100);
+				//赞赏
+				function dihejk3() {
+					layer.open({
+						type: 1,
+						title: false,
+						shade: 0.8,
+						shadeClose: true,
+						content: '<img src="./image/zsm.png" style="width: 500px;"/>'
+					});
+				}
 				//故障反馈
 				function gzfk() {
 					window.open("mailto:2585649532@qq.com");
@@ -361,10 +373,10 @@
 							return false;
 						}
 					};
-					document.oncontextmenu = function() {
-						layer.msg("电脑请使用“Ctrl+V”粘贴<br />手机请长按粘贴");
-						return false;
-					}
+					// document.oncontextmenu = function() {
+					// 	layer.msg("电脑请使用“Ctrl+V”粘贴<br />手机请长按粘贴");
+					// 	return false;
+					// }
 				}
 			</script>
 			<!--网站标题自动判断-->
@@ -389,5 +401,4 @@
 				src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3670070169085381"
 				crossorigin="anonymous"></script>
 	</body>
-
 </html>
