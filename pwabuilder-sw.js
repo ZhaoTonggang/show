@@ -1,6 +1,6 @@
 //This is the service worker with the Advanced caching
 
-importScripts('./lib/workbox-sw.js');
+importScripts('https://cdn.staticfile.org/workbox-sw/6.4.2/workbox-sw.js');
 
 const HTML_CACHE = "html";
 const JS_CACHE = "javascript";
