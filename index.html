@@ -187,9 +187,10 @@
 				<div class="panel-body" style="text-align: center;">
 					<div class="container-fluid">
 						<p>广告合作:ztg@email.heheda.top</p>
-						<p>本页面是由一款优秀前端框架<a href="https://layui.heheda.top/" target="_blank" title="Layui中文网">Layui</a>开发
+						<p>本页面是由一款优秀的前端框架<a href="https://layui.heheda.top/" target="_blank"
+								title="Layui中文网">Layui</a>开发
 						</p>
-						<p><a href="./" title="影视解析">影视解析</a>(v1.8.1) © Powered By <a href="https://my.heheda.top/"
+						<p><a href="./" title="影视解析">影视解析</a>(v1.8.3) © Powered By <a href="https://my.heheda.top/"
 								target="_blank" title="赵彤刚的小屋">赵彤刚</a></p>
 					</div>
 				</div>
@@ -259,14 +260,19 @@
 					}
 				}
 				setInterval("play()", 100);
+				//判断是否为移动设备
+				var pmkd = window.innerWidth;
+				var ismobile = false;
+				if (pmkd <= 700) {
+					ismobile = true;
+				}
 				//赞赏
 				function dihejk3() {
 					layer.open({
 						type: 1,
 						title: false,
 						shade: 0.8,
-						area: 'auto',
-						maxWidth: 500,
+						area: ismobile ? '90%' : '600px',
 						shadeClose: true,
 						content: '<img src="./image/zsm.png" style="width: 100%;"/>'
 					});
@@ -288,24 +294,12 @@
 							maxmin: true,
 							moveOut: true,
 							minStack: true,
-							area: ['800px', '500px'],
+							area: ismobile ? ['90%', '50%'] : ['850px', '500px'],
 							content: jkv + diz
 						});
 					} else {
 						layer.msg("您必须输入视频地址！");
 					}
-				}
-
-				function dlck2() {
-					layer.open({
-						type: 2,
-						title: false,
-						shadeClose: true,
-						shade: false,
-						maxmin: true,
-						area: ['893px', '600px'],
-						content: 'https://www.baidu.com/'
-					});
 				}
 				//故障反馈
 				function gzfk() {
