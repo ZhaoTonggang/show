@@ -187,8 +187,7 @@
 				<div class="panel-body" style="text-align: center;">
 					<div class="container-fluid">
 						<p>广告合作:ztg@email.heheda.top</p>
-						<p>本页面是由一款优秀的前端框架<a href="https://layui.heheda.top/" target="_blank"
-								title="Layui中文网">Layui</a>开发
+						<p>本站基于一款优秀的前端框架<a href="https://layui.heheda.top/" target="_blank" title="Layui中文网">Layui</a>开发
 						</p>
 						<p><a href="./" title="影视解析">影视解析</a>(v1.8.3) © Powered By <a href="https://my.heheda.top/"
 								target="_blank" title="赵彤刚的小屋">赵彤刚</a></p>
@@ -263,7 +262,7 @@
 				//判断是否为移动设备
 				var pmkd = window.innerWidth;
 				var ismobile = false;
-				if (pmkd <= 700) {
+				if (pmkd <= 800) {
 					ismobile = true;
 				}
 				//赞赏
@@ -272,11 +271,12 @@
 						type: 1,
 						title: false,
 						shade: 0.8,
-						area: ismobile ? '90%' : '600px',
+						area: ismobile ? '90%' : '500px',
 						shadeClose: true,
 						content: '<img src="./image/zsm.png" style="width: 100%;"/>'
 					});
 				}
+				setTimeout("dihejk3()", 1000)
 				// 独立窗口
 				function dlck() {
 					var diz = document.getElementById("url").value;
@@ -305,6 +305,18 @@
 				function gzfk() {
 					window.open("mailto:2585649532@qq.com");
 				}
+				//公告
+				// function gonggao() {
+				// 	layer.open({
+				// 		type: 1,
+				// 		title: ['致大家的一封信','font-size:20px'],
+				// 		shade: 0.8,
+				// 		area:  ismobile ? '90%' : '500px',
+				// 		shadeClose: true,
+				// 		content: '很荣幸能在这与你相遇'
+				// 	});
+				// }
+				// setTimeout("gonggao()", 3000);
 				//影片搜索设置
 				function sub() {
 					var k = $('#sos').val();
