@@ -4,7 +4,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>影视解析-vip视频解析平台</title>
+		<title>影视解析 - vip视频解析平台</title>
 		<meta name="keywords"
 			content="vip视频解析,vip视频在线解析,vip解析,万能vip视频解析,vip视频全能解析,vip视频,手机vip视频解析,手机在线解析vip视频,优酷vip解析,爱奇艺vip解析,腾讯vip解析,乐视vip解析,芒果vip解析,vip音乐解析">
 		<meta name="description"
@@ -24,7 +24,7 @@
 
 	<body>
 		<div class="col-xs-12 col-sm-10 col-md-8 col-lg-7 center-block" style="float: none;">
-			<h1 class="text-muted">VIP视频在线解析</h1>
+			<h1 class="text-muted">影视解析</h1>
 			<hr>
 			<section
 				style="padding: 5px 10px; border-width: 0px 0px 0px; border-style: solid none none; border-left-color: rgb(219, 219, 219); border-top-color: rgb(255, 255, 255); border-bottom-left-radius: 2%; border-bottom-right-radius: 2%;"
@@ -65,14 +65,16 @@
 				</div>
 				<br>
 				<div>
-					<button id="ksbf" type="button" class="btn btn-success btn-lg btn-block"
-						onclick="dihejk()" disabled>#开始播放#</button>
-					<button id="ckbf" type="button" class="btn btn-success btn-lg btn-block"
-						onclick="javascript:dlck()" disabled>#窗口播放#</button>
+					<button id="ksbf" type="button" class="btn btn-success btn-lg btn-block" onclick="dihejk()"
+						disabled>#开始播放#</button>
+					<button id="ckbf" type="button" class="btn btn-success btn-lg btn-block" onclick="javascript:dlck()"
+						disabled>#窗口播放#</button>
 					<!-- <button id="qpbf" type="button" class="btn btn-success btn-lg btn-block"
                     onclick="dihejk2()">#全屏放映#</button> -->
 					<button id="qpbf" type="button" class="btn btn-success btn-lg btn-block" onclick="dihejk2()"
 						disabled>#下载视频#</button>
+					<button id="dapp" type="button" class="btn btn-success btn-lg btn-block"
+						onclick="xzapp()">#下载APP#</button>
 					<button id="scbz" type="button" class="btn btn-success btn-lg btn-block"
 						onclick="javascript:addFavorite22()">#收藏本站#</button>
 					<button id="fxbz" type="button" class="btn btn-success btn-lg btn-block"
@@ -189,7 +191,7 @@
 						<p>广告合作:ztg@email.heheda.top</p>
 						<p>本站基于一款优秀的前端框架<a href="https://layui.heheda.top/" target="_blank" title="Layui中文网">Layui</a>开发
 						</p>
-						<p><a href="./" title="影视解析">影视解析</a>(v1.8.4) © Powered By <a href="https://my.heheda.top/"
+						<p><a href="./" title="影视解析">影视解析</a>(v1.8.5) © Powered By <a href="https://my.heheda.top/"
 								target="_blank" title="赵彤刚的小屋">赵彤刚</a></p>
 					</div>
 				</div>
@@ -304,6 +306,10 @@
 				//故障反馈
 				function gzfk() {
 					window.open("mailto:2585649532@qq.com");
+				}
+				//下载app
+				function xzapp(){
+					window.open("./app/ysjx.apk")
 				}
 				//公告
 				// function gonggao() {
