@@ -10,7 +10,6 @@
 		<meta name="description"
 			content="VIP视频免费看，在线解析，vip视频解析，优酷vip解析，爱奇艺vip解析，腾讯vip解析，乐视vip解析，全网影视vip，芒果vip解析方便广大用户VIP视频服务，最新电影最新电视剧在线免费观看">
 		<link href="./css/main.css" rel="stylesheet">
-		<!-- <link rel="stylesheet" href="./css/amazeui.min.css"> -->
 		<link href="./css/bootstrap.min.css" rel="stylesheet">
 		<!--网站图标配置-->
 		<link rel="apple-touch-icon" sizes="192x192" href="./icons/192x192.png">
@@ -29,8 +28,8 @@
 			<section
 				style="padding: 5px 10px; border-width: 0px 0px 0px; border-style: solid none none; border-left-color: rgb(219, 219, 219); border-top-color: rgb(255, 255, 255); border-bottom-left-radius: 2%; border-bottom-right-radius: 2%;"
 				class="135brush">
-				<p class="pst">最稳定，更新最快的视频解析网站，实时纠错，实时解析！</p>
-				<p class="pst">免费全网影视VIP视频vip会员免广告看电影！若播放异常，刷新，更换接口尝试哦！</p>
+				<p class="pst">全网最稳定，更新最快的视频解析网站，实时纠错，实时解析！</p>
+				<p class="pst">免费看全网视频，无广告，无弹窗！若播放异常，请刷新或更换接口后重试！</p>
 			</section>
 			<div class="col-md-14 column">
 				<div class="panel panel-default">
@@ -115,9 +114,9 @@
 							<h3 class="h3a">使用说明:</h3>
 							<div class="unit-100">
 								<div class="language1">
-									<p>第&nbsp;1&nbsp;步：进入各大视频网站，找到想要观看的VIP视频vip会员，然后复制链接（浏览器上的视频地址）。</p>
-									<p>第&nbsp;2&nbsp;步：将复制的链接粘贴到本站播放地址，并点击开始解析。</p>
-									<p>第&nbsp;3&nbsp;步：等待解析完成，即可免费观看VIP视频vip会员。</p>
+									<p>第&nbsp;1&nbsp;步：进入各大视频网站，找到想要观看的视频，然后复制链接（浏览器上的视频地址）。</p>
+									<p>第&nbsp;2&nbsp;步：将复制的链接粘贴到本站播放地址，并点击“#开始播放#”按钮。</p>
+									<p>第&nbsp;3&nbsp;步：等待解析完成，即可免费观看相应视频内容。</p>
 								</div>
 							</div>
 						</td>
@@ -142,6 +141,8 @@
 									<p>2.本站使用到的所有算法，均来自国外技术论坛以及Github开源社区</p>
 									<p>3.本站仅供互联网开发测试和学习交流，无实质性服务</p>
 								</div>
+								<button type="button" onclick="" class="btn btn-success btn-lg btn-block"
+									disabled>#侵权投诉#</button>
 							</div>
 						</td>
 					</tr>
@@ -149,12 +150,13 @@
 						<td>
 							<h3 class="h3a">视频搜索:</h3>
 							<div class="language">
-								<p>想要找会员电影免费看，下方搜索电影名，就能免费观看vip会员vip付费电影电视剧。</p>
+								<p>如需通过名称搜索内容，请在下方输入想要搜索的视频名称即可！</p>
+								<p style="color: red;">注意：搜索时间较长，请耐心等待数秒。</p>
 							</div>
 							<div id="homeso">
 								<form action="">
 									<input tabindex="2" class="form-control input-lg" id="sos" name="sousuo" type="text"
-										placeholder="请输入片名关键字 如：扫黑 决战   搜索时间较长请耐心等待数秒" value="">
+										placeholder="请输入片名关键字 如：扫黑 决战" value="">
 									<input type="hidden" name="qiehuan" value="1">
 									<button type="button" onclick="sub()"
 										class="btn btn-success btn-lg btn-block">#开始搜索#</button>
@@ -191,7 +193,7 @@
 						<p>广告合作:ztg@email.heheda.top</p>
 						<p>本站基于一款优秀的前端框架<a href="https://layui.heheda.top/" target="_blank" title="Layui中文网">Layui</a>开发
 						</p>
-						<p><a href="./" title="影视解析">影视解析</a>(v1.8.5) © Powered By <a href="https://my.heheda.top/"
+						<p><a href="./" title="影视解析">影视解析</a>(v1.8.6) © Powered By <a href="https://my.heheda.top/"
 								target="_blank" title="赵彤刚的小屋">赵彤刚</a></p>
 					</div>
 				</div>
@@ -245,14 +247,15 @@
 				//         document.getElementById("ksbf").disabled = false;
 				//     }
 				// }
+
 				//按钮可选控制
 				function play() {
-					var diz = document.getElementById("url").value;
-					diz = diz.replace(/(^\s*)|(\s*$)/g, '');
+					var diz = document.getElementById("url").value.replace(/(^\s*)|(\s*$)/g, '');
+					var dbz = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/g;
 					var daz = document.getElementById("ksbf");
 					var dck = document.getElementById("ckbf");
 					// var dcz = document.getElementById("qpbf");
-					if (diz != "" || diz == "null") {
+					if (dbz.test(diz)) {
 						daz.disabled = false;
 						dck.disabled = false;
 					} else {
@@ -278,12 +281,12 @@
 						content: '<img src="./image/zsm.png" style="width: 100%;"/>'
 					});
 				}
-				setTimeout("dihejk3()", 1000)
+				setTimeout("dihejk3()", 500)
 				// 独立窗口
 				function dlck() {
-					var diz = document.getElementById("url").value;
-					diz = diz.replace(/(^\s*)|(\s*$)/g, '');
-					if (diz != "" || diz == "null") {
+					var diz = document.getElementById("url").value.replace(/(^\s*)|(\s*$)/g, '');
+					var dbz = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/g;
+					if (dbz.test(diz)) {
 						var jkurl = document.getElementById("jk");
 						var jk = document.getElementById("jk").selectedIndex;
 						var jkv = jkurl.options[jk].value;
@@ -300,7 +303,7 @@
 							content: jkv + diz
 						});
 					} else {
-						layer.msg("您必须输入视频地址！");
+						layer.msg("请输入有效的视频链接地址！");
 					}
 				}
 				//故障反馈
@@ -308,7 +311,7 @@
 					window.open("mailto:2585649532@qq.com");
 				}
 				//下载app
-				function xzapp(){
+				function xzapp() {
 					window.open("./app/ysjx.apk")
 				}
 				//公告
@@ -465,5 +468,8 @@
 			<script async
 				src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3670070169085381"
 				crossorigin="anonymous"></script>
+			<noscript>
+				<h1>本站功能实现依赖了大量JS，您的浏览器不支持或未启用JS！</h1>
+			</noscript>
 	</body>
 </html>
