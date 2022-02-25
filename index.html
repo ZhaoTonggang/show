@@ -72,8 +72,6 @@
                     onclick="dihejk2()">#全屏放映#</button> -->
 					<button id="qpbf" type="button" class="btn btn-success btn-lg btn-block" onclick="dihejk2()"
 						disabled>#下载视频#</button>
-					<button id="dapp" type="button" class="btn btn-success btn-lg btn-block"
-						onclick="xzapp()">#下载APP#</button>
 					<button id="scbz" type="button" class="btn btn-success btn-lg btn-block"
 						onclick="javascript:addFavorite22()">#收藏本站#</button>
 					<button id="fxbz" type="button" class="btn btn-success btn-lg btn-block"
@@ -141,8 +139,21 @@
 									<p>2.本站使用到的所有算法，均来自国外技术论坛以及Github开源社区</p>
 									<p>3.本站仅供互联网开发测试和学习交流，无实质性服务</p>
 								</div>
-								<button type="button" onclick="" class="btn btn-success btn-lg btn-block"
-									disabled>#侵权投诉#</button>
+								<button type="button" onclick="qqts()"
+									class="btn btn-success btn-lg btn-block">#侵权投诉#</button>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h3 class="h3a">下载APP:</h3>
+							<div class="unit-100">
+								<div class="language">
+									<p>本站已支持对应APP，您可以点击下方按钮下载体验！</p>
+									<p style="color: red;">注意：暂不支持IOS版本！</p>
+								</div>
+								<button type="button" onclick="xzapp()"
+									class="btn btn-success btn-lg btn-block">#下载APP#</button>
 							</div>
 						</td>
 					</tr>
@@ -193,7 +204,7 @@
 						<p>广告合作:ztg@email.heheda.top</p>
 						<p>本站基于一款优秀的前端框架<a href="https://layui.heheda.top/" target="_blank" title="Layui中文网">Layui</a>开发
 						</p>
-						<p><a href="./" title="影视解析">影视解析</a>(v1.8.6) © Powered By <a href="https://my.heheda.top/"
+						<p><a href="./" title="影视解析">影视解析</a>(v1.8.7) © Powered By <a href="https://my.heheda.top/"
 								target="_blank" title="赵彤刚的小屋">赵彤刚</a></p>
 					</div>
 				</div>
@@ -310,8 +321,24 @@
 				function gzfk() {
 					window.open("mailto:2585649532@qq.com");
 				}
+				//侵权投诉
+				function qqts() {
+					window.open("https://wj.qq.com/s2/9759503/e350/")
+				}
 				//下载app
 				function xzapp() {
+					// window.open("./app/ysjx.apk")
+					layer.open({
+						type: 1,
+						title: false,
+						shade: 0.8,
+						area: ismobile ? '90%' : '500px',
+						shadeClose: true,
+						content: '<div style="padding:5px"><button type="button" onclick="xzappaz()" class="btn btn-success btn-lg btn-block">#安卓版本#</button><button type="button" onclick="xzapp-ios()" class="btn btn-success btn-lg btn-block" disabled>#IOS版本#</button></div>'
+					});
+				}
+				//安卓APP
+				function xzappaz() {
 					window.open("./app/ysjx.apk")
 				}
 				//公告
