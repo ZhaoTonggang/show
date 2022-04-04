@@ -6,6 +6,10 @@ body {
 	width: 100%;
 }
 
+.bgdiv {
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
 .language1,
 .language {
 	margin: 0 auto;
@@ -15,11 +19,15 @@ body {
 
 .language {
 	text-align: center;
+	color: white;
+	font-weight: bold;
 }
 
 .language1 {
 	text-align: left;
 	padding-left: 28px;
+	color: white;
+	font-weight: bold;
 }
 
 .language img {
@@ -82,6 +90,7 @@ body {
 	text-align: center;
 	font-family: YouYuan, KaiTi, Helvetica, Arial, sans-serif;
 	font-weight: bold;
+	color: white;
 }
 
 #player {
@@ -93,5 +102,31 @@ body {
 .pst {
 	letter-spacing: 1px;
 	text-align: center;
-	color: #000000;
+	color: white;
+}
+
+.input-group {
+	margin-bottom: 10px;
+}
+
+.video {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	object-fit: cover;
+	z-index: -999;
+}
+
+.text-muted {
+	margin: 0;
+	padding-top: 20px;
+	color: white !important;
+}
+
+.panel-body {
+	text-align: center;
+	color: white;
+	font-weight: bold;
 }
