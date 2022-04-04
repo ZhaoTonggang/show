@@ -108,7 +108,7 @@ select:hover {
 
 #player {
 	width: 100%;
-	height: 500px;
+	height: 400px;
 	background: #000 url('../image/loding.gif') no-repeat center/cover;
 }
 
