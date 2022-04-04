@@ -116,7 +116,7 @@ function xzapp() {
 		shade: 0.8,
 		area: ismobile ? '90%' : '500px',
 		shadeClose: true,
-		content: '<div style="padding:5px"><button type="button" onclick="xzappaz()" class="btn btn-success btn-lg btn-block">#安卓版本#</button><button type="button" onclick="xzapp-ios()" class="btn btn-success btn-lg btn-block" disabled>#IOS版本#</button></div>'
+		content: '<div style="padding:5px"><button type="button" onclick="xzappaz()" class="btn btn-info btn-lg btn-block">#安卓版本#</button><button type="button" onclick="xzapp-ios()" class="btn btn-info btn-lg btn-block" disabled>#IOS版本#</button></div>'
 	});
 }
 
