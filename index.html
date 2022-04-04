@@ -9,21 +9,23 @@
 			content="vip视频解析,vip视频在线解析,vip解析,万能vip视频解析,vip视频全能解析,vip视频,手机vip视频解析,手机在线解析vip视频,优酷vip解析,爱奇艺vip解析,腾讯vip解析,乐视vip解析,芒果vip解析,vip音乐解析">
 		<meta name="description"
 			content="VIP视频免费看，在线解析，vip视频解析，优酷vip解析，爱奇艺vip解析，腾讯vip解析，乐视vip解析，全网影视vip，芒果vip解析方便广大用户VIP视频服务，最新电影最新电视剧在线免费观看">
-		<link href="./css/main.css" rel="stylesheet">
-		<link href="./css/bootstrap.min.css" rel="stylesheet">
+		<!-- bootstrap框架 CSS -->
+		<link href="./lib/bootstrap-3.4.1/css/bootstrap.min.css" rel="stylesheet" />
+		<!-- 核心样式框架 -->
+		<link href="./css/index.css" rel="stylesheet" />
 		<!--网站图标配置-->
-		<link rel="apple-touch-icon" sizes="192x192" href="./icons/192x192.png">
-		<link rel="icon" type="image/png" sizes="128x128" href="./icons/128x128.png">
-		<link rel="icon" type="image/png" sizes="144x144" href="./icons/144x144.png">
-		<link rel="icon" type="image/png" sizes="384x384" href="./icons/384x384.png">
-		<link rel="icon" type="image/png" sizes="512x512" href="./icons/512x512.png">
+		<link rel="apple-touch-icon" sizes="192x192" href="./icons/192x192.png" />
+		<link rel="icon" type="image/png" sizes="128x128" href="./icons/128x128.png" />
+		<link rel="icon" type="image/png" sizes="144x144" href="./icons/144x144.png" />
+		<link rel="icon" type="image/png" sizes="384x384" href="./icons/384x384.png" />
+		<link rel="icon" type="image/png" sizes="512x512" href="./icons/512x512.png" />
 		<!--PWA配置-->
 		<link rel="manifest" href="./manifest.json">
 	</head>
 
 	<body>
 		<div class="col-xs-12 col-sm-10 col-md-8 col-lg-7 center-block bgdiv" style="float: none;">
-			<h1 class="text-muted">影视解析</h1>
+			<h1 class="title">影视解析</h1>
 			<hr>
 			<section
 				style="padding: 5px 10px; border-width: 0px 0px 0px; border-style: solid none none; border-left-color: rgb(219, 219, 219); border-top-color: rgb(255, 255, 255); border-bottom-left-radius: 2%; border-bottom-right-radius: 2%;"
@@ -42,13 +44,13 @@
 				</div>
 			</div>
 			<div class="col-md-14 column">
-				<div class="input-group" style="width: 100%; ">
-					<span class="input-group-addon input-lg" style="width: 80px;">播放地址</span>
-					<input class="form-control input-lg" type="search" placeholder="电脑请使用“Ctrl+V”粘贴/手机请长按粘贴" id="url"
+				<div class="input-group" style="width: 100%;">
+					<span class="input-group-addon input-lg">播放地址</span>
+					<input class="form-control input-lg" type="search" placeholder="手机请长按粘贴/电脑请使用“Ctrl+V”粘贴" id="url"
 						onclick="play()">
 				</div>
 				<div class="input-group" style="width: 100%;">
-					<span class="input-group-addon input-lg" style="width: 80px; ">选择线路</span>
+					<span class="input-group-addon input-lg">选择线路</span>
 					<select class="form-control input-lg" id="jk">
 						<option value="https://vip.parwix.com:4433/player/?url=" selected="selected">线路一</option>
 						<option value="https://jx.bbblx.com/?url=">线路二</option>
@@ -62,21 +64,21 @@
 					</select>
 				</div>
 				<div>
-					<button id="ksbf" type="button" class="btn btn-success btn-lg btn-block" onclick="dihejk()"
+					<button id="ksbf" type="button" class="btn btn-info btn-lg btn-block" onclick="dihejk()"
 						disabled>#开始播放#</button>
-					<button id="ckbf" type="button" class="btn btn-success btn-lg btn-block" onclick="dlck()"
+					<button id="ckbf" type="button" class="btn btn-info btn-lg btn-block" onclick="dlck()"
 						disabled>#窗口播放#</button>
-					<!-- <button id="qpbf" type="button" class="btn btn-success btn-lg btn-block"
+					<!-- <button id="qpbf" type="button" class="btn btn-info btn-lg btn-block"
                     onclick="dihejk2()">#全屏放映#</button> -->
-					<!-- <button id="qpbf" type="button" class="btn btn-success btn-lg btn-block" onclick="dihejk2()"
+					<!-- <button id="qpbf" type="button" class="btn btn-info btn-lg btn-block" onclick="dihejk2()"
 						disabled>#下载视频#</button> -->
-					<!-- <button id="scbz" type="button" class="btn btn-success btn-lg btn-block"
+					<!-- <button id="scbz" type="button" class="btn btn-info btn-lg btn-block"
 						onclick="addFavorite22()">#收藏本站#</button> -->
-					<button id="fxbz" type="button" class="btn btn-success btn-lg btn-block"
+					<button id="fxbz" type="button" class="btn btn-info btn-lg btn-block"
 						onclick="call()">#分享本站#</button>
-					<button id="gzfk" type="button" class="btn btn-success btn-lg btn-block"
+					<button id="gzfk" type="button" class="btn btn-info btn-lg btn-block"
 						onclick="gzfk()">#故障反馈#</button>
-					<button id="zzbz" type="button" class="btn btn-success btn-lg btn-block"
+					<button id="zzbz" type="button" class="btn btn-info btn-lg btn-block"
 						onclick="dihejk3()">#赞助本站#</button>
 				</div>
 				<br />
@@ -138,7 +140,7 @@
 									<p>3.本站仅供互联网开发测试和学习交流，无实质性服务</p>
 								</div>
 								<button type="button" onclick="qqts()"
-									class="btn btn-success btn-lg btn-block">#侵权投诉#</button>
+									class="btn btn-info btn-lg btn-block">#侵权投诉#</button>
 							</div>
 						</td>
 					</tr>
@@ -151,7 +153,7 @@
 									<p style="color: red;">注意：暂不支持IOS版本！</p>
 								</div>
 								<button type="button" onclick="xzapp()"
-									class="btn btn-success btn-lg btn-block">#下载APP#</button>
+									class="btn btn-info btn-lg btn-block">#下载APP#</button>
 							</div>
 						</td>
 					</tr>
@@ -163,13 +165,10 @@
 								<p style="color: red;">注意：搜索时间较长，请耐心等待数秒。</p>
 							</div>
 							<div id="homeso">
-								<!-- <form action="" method="post"> -->
-								<input tabindex="2" class="form-control input-lg" id="sos" name="sousuo" type="text"
-									placeholder="请输入片名关键字 如：扫黑 决战" value="">
-								<!-- <input type="hidden" name="qiehuan" value="1"> -->
+								<input tabindex="2" class="form-control input-lg input-group" id="sos" name="sousuo"
+									type="text" placeholder="请输入片名关键字 如：扫黑 决战" value="">
 								<button type="button" onclick="sub()"
-									class="btn btn-success btn-lg btn-block">#开始搜索#</button>
-								<!-- </form> -->
+									class="btn btn-info btn-lg btn-block">#开始搜索#</button>
 							</div>
 						</td>
 					</tr>
@@ -200,16 +199,19 @@
 				<div class="panel-body" style="text-align: center;">
 					<div class="container-fluid">
 						<p>广告合作:ztg@email.heheda.top</p>
-						<p>本站基于一款优秀的前端框架<a href="https://layui.heheda.top/" target="_blank" title="Layui中文网">Layui</a>开发
+						<p>本站使用开源框架<a href="https://www.bootcss.com/" target="_blank"
+								title="Bootstrap中文网">Bootstrap</a>和<a href="https://layui.heheda.top/" target="_blank"
+								title="Layui中文网">Layui</a>开发
 						</p>
 						<p><a href="./" title="影视解析">影视解析</a>(v1.9.0) © Powered By <a href="https://my.heheda.top/"
 								target="_blank" title="赵彤刚的小屋">赵彤刚</a></p>
 					</div>
 				</div>
 			</div>
-			<video class="video" autoplay="autoplay" loop="loop" muted="muted" src="https://static.yximgs.com/udata/pkg/frontend-explore/musician_home_video.d7e62d93ff917fde.mp4"></video>
+			<!-- 视频背景 -->
+			<video class="video" autoplay="autoplay" loop="loop" muted="muted"
+				src="https://static.yximgs.com/udata/pkg/frontend-explore/musician_home_video.d7e62d93ff917fde.mp4"></video>
 			<script src="./js/jquery-3.5.1.min.js"></script>
-			<script src="./js/bootstrap.min.js"></script>
 			<!--弹窗组件-->
 			<script src="./lib/layer/layer.js"></script>
 			<!--分享功能依赖-->
