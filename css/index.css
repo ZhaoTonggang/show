@@ -16,7 +16,9 @@ select:hover {
 }
 
 .bgdiv {
-	background-color: rgba(255, 255, 255, 0.3);
+	/* background-color: rgba(0, 170, 255, 0.2); */
+	background: linear-gradient(45deg, rgba(255, 0, 0, 0.2), rgba(255, 170, 0, 0.2), rgba(255, 255, 0, 0.2), rgba(0, 255, 0, 0.2), rgba(85, 255, 255, 0.2), rgba(0, 85, 255, 0.2), rgba(85, 0, 127, 0.2)) no-repeat center/500%;
+	animation: rlactivity 10s infinite;
 }
 
 .section1 {
@@ -107,7 +109,7 @@ select:hover {
 #player {
 	width: 100%;
 	height: 400px;
-	background: #000 url('../image/loding.gif') no-repeat center/cover;
+	background: #000 url(../image/loding.gif) no-repeat center/cover;
 }
 
 .pst {
@@ -136,12 +138,18 @@ select:hover {
 	padding: 10px 0;
 	color: white;
 	text-align: center;
+	font-weight: bold;
 }
 
-.panel-body {
+.copy {
 	text-align: center;
 	color: white;
 	font-weight: bold;
+	padding-bottom: 10px;
+}
+
+.copy p {
+	margin: 0;
 }
 
 /* 滚动条 */
@@ -167,4 +175,19 @@ select:hover {
 	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 	border-radius: 10px;
 	background-color: #202124;
+}
+
+/* 左右晃动效果 */
+@keyframes rlactivity {
+	0% {
+		background-position: 0% 50%;
+	}
+
+	50% {
+		background-position: 100% 50%;
+	}
+
+	100% {
+		background-position: 0% 50%;
+	}
 }

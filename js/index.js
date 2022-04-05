@@ -9,7 +9,7 @@ if (pmkd <= 800) {
 
 //按钮可选控制
 function play() {
-	var diz = document.getElementById("url").value.replace(/(^\s*)|(\s*$)/g, '');
+	var diz = document.getElementById("url").value.replace(/[\u4e00-\u9fa5]|(^\s*)|(\s*$)/g, '');
 	var dbz = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/g;
 	var daz = document.getElementById("ksbf");
 	var dck = document.getElementById("ckbf");
@@ -29,7 +29,7 @@ function dihejk() {
 	var jkurl = document.getElementById("jk");
 	var jk = document.getElementById("jk").selectedIndex;
 	var jkv = jkurl.options[jk].value;
-	var diz = document.getElementById("url").value.replace(/(^\s*)|(\s*$)/g, '');
+	var diz = document.getElementById("url").value.replace(/[\u4e00-\u9fa5]|(^\s*)|(\s*$)/g, '');
 	document.getElementById("player").src = jkv + diz;
 }
 
