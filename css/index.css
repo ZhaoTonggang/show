@@ -16,8 +16,7 @@ select:hover {
 }
 
 .bgdiv {
-	/* background-color: rgba(0, 170, 255, 0.2); */
-	background: linear-gradient(45deg, rgba(255, 0, 0, 0.2), rgba(255, 170, 0, 0.2), rgba(255, 255, 0, 0.2), rgba(0, 255, 0, 0.2), rgba(85, 255, 255, 0.2), rgba(0, 85, 255, 0.2), rgba(85, 0, 127, 0.2)) no-repeat center/500%;
+	background: linear-gradient(45deg, rgba(0, 0, 0, 0.2), rgba(255, 0, 0, 0.2), rgba(255, 170, 0, 0.2), rgba(255, 255, 0, 0.2), rgba(0, 255, 0, 0.2), rgba(85, 255, 255, 0.2), rgba(0, 85, 255, 0.2), rgba(85, 0, 127, 0.2), rgba(255, 255, 255, 0.2)) no-repeat center/1000%;
 	animation: rlactivity 10s infinite;
 }
 
@@ -110,6 +109,7 @@ select:hover {
 	width: 100%;
 	height: 400px;
 	background: #000 url(../image/loding.gif) no-repeat center/cover;
+	border-radius: 10px;
 }
 
 .pst {
