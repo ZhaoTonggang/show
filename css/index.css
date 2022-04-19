@@ -112,11 +112,19 @@ select:hover {
 	border-radius: 10px;
 }
 
-.pst {
+.pst,
+.yiyan {
 	margin: 0;
 	text-align: center;
-	color: white;
 	font-weight: bold;
+}
+
+.pst {
+	color: white;
+}
+
+.yiyan {
+	color: black;
 }
 
 .input-group {

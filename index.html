@@ -15,8 +15,13 @@
 		<link href="./css/index.css" rel="stylesheet" />
 		<!--网站图标配置-->
 		<link rel="apple-touch-icon" sizes="192x192" href="./icons/192x192.png" />
+		<link rel="shortcut icon" type="image/png" sizes="16×16" href="./icons/16×16.png" />
+		<link rel="icon" type="image/png" sizes="72×72" href="./icons/72×72.png" />
+		<link rel="icon" type="image/png" sizes="96×96" href="./icons/96×96.png" />
 		<link rel="icon" type="image/png" sizes="128x128" href="./icons/128x128.png" />
 		<link rel="icon" type="image/png" sizes="144x144" href="./icons/144x144.png" />
+		<link rel="icon" type="image/png" sizes="152×152" href="./icons/152×152.png" />
+		<link rel="icon" type="image/png" sizes="192×192" href="./icons/192×192.png" />
 		<link rel="icon" type="image/png" sizes="384x384" href="./icons/384x384.png" />
 		<link rel="icon" type="image/png" sizes="512x512" href="./icons/512x512.png" />
 		<!--PWA配置-->
@@ -34,6 +39,7 @@
 				<iframe id="player" allowtransparency="true" allowfullscreen="true" frameborder="0" scrolling="no">
 					<h1>抱歉，出了一点意外，您的浏览器可能不支持此框架！</h1>
 				</iframe>
+				<p class="yiyan" id="hitokoto">(*゜ロ゜)ノ一言加载中...</p>
 			</div>
 			<div class="col-md-14 column">
 				<div class="input-group" style="width: 100%;">
@@ -166,7 +172,9 @@
 								<a target="_blank" class="btn2 btn-outline2" title="音乐解锁"
 									href="https://unlock-music.heheda.top/">音乐解锁</a>
 								<a target="_blank" class="btn2 btn-outline2" title="Layui中文网"
-									href="https://layui.heheda.top/">Layui</a>
+									href="https://layui.heheda.top/">Layui中文网</a>
+								<a target="_blank" class="btn2 btn-outline2" title="在线畅玩小霸王"
+									href="https://nes.heheda.top/">红白之家</a>
 							</div>
 						</td>
 					</tr>
@@ -176,7 +184,7 @@
 					<p>本站使用开源框架<a href="https://www.bootcss.com/" target="_blank" title="Bootstrap中文网">Bootstrap</a>和<a
 							href="https://layui.heheda.top/" target="_blank" title="Layui中文网">Layui</a>开发
 					</p>
-					<p><a href="./" title="影视解析">影视解析</a>(v1.9.3) © Powered By <a href="https://my.heheda.top/"
+					<p><a href="./" title="影视解析">影视解析</a>(v1.9.4) © Powered By <a href="https://my.heheda.top/"
 							target="_blank" title="赵彤刚的小屋">赵彤刚</a></p>
 				</div>
 			</div>
@@ -190,6 +198,8 @@
 			<script src="./js/NativeShare.js"></script>
 			<!-- 页面逻辑 -->
 			<script src="./js/index.js"></script>
+			<!--一言API-->
+			<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
 			<!--PWA渐进式应用配置-->
 			<script type="module" async="async">
 				import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';

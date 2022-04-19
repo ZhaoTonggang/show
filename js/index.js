@@ -30,6 +30,19 @@ function dihejk() {
 	var jk = document.getElementById("jk").selectedIndex;
 	var jkv = jkurl.options[jk].value;
 	var diz = document.getElementById("url").value.replace(/[\u4e00-\u9fa5]|(^\s*)|(\s*$)/g, '');
+	var url = diz.indexOf("?")
+	var mgurl = diz.indexOf("migu")
+	if (mgurl != -1) {
+		var migu = diz.indexOf("&")
+		if (migu != -1) {
+			diz = diz.substring(0, migu)
+		}
+	} else {
+		if (url != -1) {
+			diz = diz.substring(0, url)
+		}
+	}
+	document.getElementById("url").value = diz;
 	document.getElementById("player").src = jkv + diz;
 }
 
