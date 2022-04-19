@@ -16,8 +16,8 @@ select:hover {
 }
 
 .bgdiv {
-	background: linear-gradient(45deg, rgba(0, 0, 0, 0.2), rgba(255, 0, 0, 0.2), rgba(255, 170, 0, 0.2), rgba(255, 255, 0, 0.2), rgba(0, 255, 0, 0.2), rgba(85, 255, 255, 0.2), rgba(0, 85, 255, 0.2), rgba(85, 0, 127, 0.2), rgba(255, 255, 255, 0.2)) no-repeat center/1000%;
-	animation: rlactivity 10s infinite;
+	background: linear-gradient(45deg, rgba(0, 0, 0, 0.4), rgba(255, 0, 0, 0.4), rgba(255, 170, 0, 0.4), rgba(255, 255, 0, 0.4), rgba(0, 255, 0, 0.4), rgba(85, 255, 255, 0.4), rgba(0, 85, 255, 0.4), rgba(85, 0, 127, 0.4), rgba(255, 255, 255, 0.4)) no-repeat center/1000%;
+	animation: rlactivity 20s infinite;
 }
 
 .section1 {
