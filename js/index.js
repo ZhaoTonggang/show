@@ -1,142 +1,112 @@
 //判断是否为移动设备
-var pmkd = window.innerWidth;
 var ismobile = false;
-if (pmkd <= 800) {
-	ismobile = true;
-} else {
-	ismobile = false;
-}
+window.innerWidth <= 550 ? ismobile = true : false;
 
-//按钮可选控制
-function play() {
+// 服务密令
+var toke = '1357246824681357';
+
+// 播放与界面控制
+function play(a) {
 	var diz = document.getElementById("url").value.replace(/[\u4e00-\u9fa5]|(^\s*)|(\s*$)/g, '');
 	var dbz = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/g;
-	var daz = document.getElementById("ksbf");
-	var dck = document.getElementById("ckbf");
-	// var dcz = document.getElementById("qpbf");
-	if (dbz.test(diz)) {
-		daz.disabled = false;
-		dck.disabled = false;
-	} else {
-		daz.disabled = true;
-		dck.disabled = true;
-	}
-}
-setInterval("play()", 100);
-
-//开始播放
-function dihejk() {
 	var jkurl = document.getElementById("jk");
 	var jk = document.getElementById("jk").selectedIndex;
-	var jkv = jkurl.options[jk].value;
-	var diz = document.getElementById("url").value.replace(/[\u4e00-\u9fa5]|(^\s*)|(\s*$)/g, '');
-	var url = diz.indexOf("?")
-	var mgurl = diz.indexOf("migu")
-	if (mgurl != -1) {
-		var migu = diz.indexOf("&")
-		if (migu != -1) {
-			diz = diz.substring(0, migu)
-		}
-	} else {
-		if (url != -1) {
-			diz = diz.substring(0, url)
+	var jkk = jkurl.options[jk].value;
+	var jkv = CryptoJS.AES.decrypt(jkk, toke).toString(CryptoJS.enc.Utf8);
+	// 按钮显示控制
+	if (a == 0) {
+		var daz = document.getElementById("ksbf");
+		var dck = document.getElementById("ckbf");
+		if (dbz.test(diz)) {
+			daz.disabled = false;
+			dck.disabled = false;
+		} else {
+			daz.disabled = true;
+			dck.disabled = true;
 		}
 	}
-	document.getElementById("url").value = diz;
-	document.getElementById("player").src = jkv + diz;
-}
-
-//全屏播放
-function dihejk2() {
-	var diz = document.getElementById("url").value;
-	diz = diz.replace(/(^\s*)|(\s*$)/g, '');
-	if (diz != "" || diz == "null") {
-		var jkurl = document.getElementById("jk");
-		var jk = document.getElementById("jk").selectedIndex;
-		var jkv = jkurl.options[jk].value;
-		var cljurl = document.getElementById("player");
-		window.open(jkv + diz, "_blank");
-		document.getElementById("ksbf").disabled = true;
-	} else {
-		alert("您必须输入视频地址！");
-		document.getElementById("ksbf").disabled = false;
+	// 开始播放
+	if (a == 1) {
+		var url = diz.indexOf("?")
+		var mgurl = diz.indexOf("migu")
+		if (mgurl != -1) {
+			var migu = diz.indexOf("&")
+			if (migu != -1) {
+				diz = diz.substring(0, migu)
+			}
+		} else {
+			if (url != -1) {
+				diz = diz.substring(0, url)
+			}
+		}
+		document.getElementById("url").value = diz;
+		document.getElementById("player").src = jkv + diz;
 	}
-}
-
-// 独立窗口
-function dlck() {
-	var diz = document.getElementById("url").value.replace(/(^\s*)|(\s*$)/g, '');
-	var dbz = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/g;
-	if (dbz.test(diz)) {
-		var jkurl = document.getElementById("jk");
-		var jk = document.getElementById("jk").selectedIndex;
-		var jkv = jkurl.options[jk].value;
-		var cljurl = document.getElementById("player");
-		layer.open({
-			type: 2,
+	// 窗口播放
+	if (a == 2) {
+		xtip.open({
+			type: 'u',
+			content: jkv + diz,
 			title: '窗口播放',
-			shadeClose: true,
-			shade: false,
-			maxmin: true,
-			moveOut: true,
-			minStack: true,
-			area: ismobile ? ['90%', '50%'] : ['850px', '500px'],
-			content: jkv + diz
+			width: ismobile ? '90%' : '850px',
+			height: ismobile ? '50%' : '500px',
+			min: true,
+			max: true,
+			closeBtn: true,
+			shade: false
 		});
-	} else {
-		layer.msg("请输入有效的视频链接地址！");
 	}
 }
+setInterval("play(0)", 100);
 
 //搜索功能
 function sub() {
 	var sos = document.getElementById("sos").value.trim();
-	if (!sos) {
-		layer.msg('请输入片名关键字！');
-	} else {
-		window.open("https://movie.heheda.top/so.php?wd=" + sos, '_blank');
+	!sos ? xtip.msg('请输入片名关键字！', {
+		icon: 'w'
+	}) : window.open("https://movie.heheda.top/so.php?wd=" + sos, '_blank');
+}
+
+//其他按钮
+function othbut(b) {
+	if (b == 0) {
+		window.open("mailto:2585649532@qq.com");
+	}
+	// 赞赏码
+	if (b == 1) {
+		xtip.open({
+			type: 'h',
+			width: ismobile ? '300px' : '500px',
+			height: ismobile ? '300px' : '500px',
+			content: '<img src="./image/zsm.png" style="width: 100%;"/>',
+			title: false,
+			over: false,
+			end: function() {
+				xtip.msg('小赵伤心的留下了一滴眼泪！', {
+					icon: 'w'
+				});
+			}
+		});
+	}
+	if (b == 2) {
+		window.open("https://wj.qq.com/s2/9759503/e350/");
+	}
+	// 下载APP
+	if (b == 3) {
+		xtip.open({
+			type: 'h',
+			width: ismobile ? '90%' : '55%',
+			height: '120px',
+			content: '<div style="padding:5px"><button type="button" onclick="othbut(30)" class="btn btn-success btn-lg btn-block">#安卓版本#</button><button type="button" onclick="xzapp-ios()" class="btn btn-success btn-lg btn-block" disabled>#IOS版本#</button></div>',
+			title: false,
+			over: false
+		});
+	}
+	if (b == 30) {
+		window.open("./app/ysjx.apk");
 	}
 }
-
-//赞赏
-function dihejk3() {
-	layer.open({
-		type: 1,
-		title: false,
-		shade: 0.8,
-		area: ismobile ? '90%' : '500px',
-		shadeClose: true,
-		content: '<img src="./image/zsm.png" style="width: 100%;"/>'
-	});
-}
-setTimeout("dihejk3()", 500)
-
-//故障反馈
-function gzfk() {
-	window.open("mailto:2585649532@qq.com");
-}
-
-//侵权投诉
-function qqts() {
-	window.open("https://wj.qq.com/s2/9759503/e350/")
-}
-
-//下载app
-function xzapp() {
-	layer.open({
-		type: 1,
-		title: false,
-		shade: 0.8,
-		area: ismobile ? '90%' : '500px',
-		shadeClose: true,
-		content: '<div style="padding:5px"><button type="button" onclick="xzappaz()" class="btn btn-info btn-lg btn-block">#安卓版本#</button><button type="button" onclick="xzapp-ios()" class="btn btn-info btn-lg btn-block" disabled>#IOS版本#</button></div>'
-	});
-}
-
-//安卓APP
-function xzappaz() {
-	window.open("./app/ysjx.apk")
-}
+setTimeout("othbut(1)", 500);
 
 //收藏功能
 function addFavorite22() {
@@ -144,19 +114,25 @@ function addFavorite22() {
 	var title = document.title;
 	var ua = navigator.userAgent.toLowerCase();
 	if (ua.indexOf("360se") > -1) {
-		layer.msg("由于360浏览器功能限制，请按 Ctrl+D 手动收藏！");
+		xtip.msg('由于360浏览器功能限制，请按 Ctrl+D 手动收藏！', {
+			icon: 'w'
+		});
 	} else if (ua.indexOf("msie 8") > -1) {
 		window.external.AddToFavoritesBar(url, title); //IE8
 	} else if (document.all) {
 		try {
 			window.external.addFavorite(url, title);
 		} catch (e) {
-			layer.msg('您的浏览器不支持,请按 Ctrl+D 手动收藏!');
+			xtip.msg('您的浏览器不支持,请按 Ctrl+D 手动收藏!', {
+				icon: 'w'
+			});
 		}
 	} else if (window.sidebar) {
 		window.sidebar.addPanel(title, url, "");
 	} else {
-		layer.msg('您的浏览器不支持,请按 Ctrl+D 手动收藏!');
+		xtip.msg('您的浏览器不支持,请按 Ctrl+D 手动收藏!', {
+			icon: 'w'
+		});
 	}
 }
 
@@ -184,7 +160,9 @@ function call(command) {
 	} catch (err) {
 		// 如果不支持，你可以在这里做降级处理
 		// alert(err.message)
-		layer.msg('分享失败，请手动分享！');
+		xtip.msg('分享失败，请手动分享！', {
+			icon: 'w'
+		});
 	}
 }
 
@@ -199,15 +177,21 @@ window.onload = function() {
 	document.onkeydown = function() {
 		var e = window.event || arguments[0];
 		if (e.keyCode == 123) {
-			layer.msg("禁止非法调试！");
+			xtip.msg('禁止非法调试！', {
+				icon: 'w'
+			});
 			return false;
 		} else if ((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)) {
-			layer.msg("禁止非法调试！");
+			xtip.msg('禁止非法调试！', {
+				icon: 'w'
+			});
 			return false;
 		}
 	};
 	// document.oncontextmenu = function() {
-	// 	layer.msg("电脑请使用“Ctrl+V”粘贴<br />手机请长按粘贴");
+	// xtip.msg('电脑请使用“Ctrl+V”粘贴<br />手机请长按粘贴', {
+	// 	icon: 'w'
+	// });
 	// 	return false;
 	// }
 }
