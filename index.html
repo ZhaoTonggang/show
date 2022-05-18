@@ -46,7 +46,8 @@
 			<div class="col-md-14 column">
 				<div class="input-group" style="width: 100%;">
 					<span class="input-group-addon input-lg">播放地址</span>
-					<input class="form-control input-lg" type="search" placeholder="手机请长按粘贴/电脑请使用“Ctrl+V”粘贴" id="url" />
+					<input class="form-control input-lg" type="search" placeholder="手机请长按粘贴/电脑请使用“Ctrl+V”粘贴" id="url"
+						onkeyup="butshow()" />
 				</div>
 				<div class="input-group" style="width: 100%;">
 					<span class="input-group-addon input-lg">选择线路</span>
@@ -192,9 +193,21 @@
 					<p>广告合作:ztg@email.heheda.top</p>
 					<p>本站使用开源框架<a href="https://www.bootcss.com/" target="_blank" title="Bootstrap中文网">Bootstrap</a>开发
 					</p>
-					<p><a href="./" title="影视解析">影视解析</a>(v1.9.5) © Powered By <a href="https://my.heheda.top/"
+					<p><a href="./" title="影视解析">影视解析</a>(v2.0.0) © Powered By <a href="https://my.heheda.top/"
 							target="_blank" title="赵彤刚的小屋">赵彤刚</a></p>
 				</div>
+			</div>
+			<!-- 验证 -->
+			<div id="tip_content2" style="display: none;">
+				<!-- <div class="tipyz">
+					<p class="psy" style="color: red;">为了防止恶意访问，需要进行身份验证</p>
+					<p class="psy">请使用微信扫描下方二维码，或搜索微信公众号“一只小彤刚”</p>
+					<p class="psy">关注公众号并回复“ysjx”获取验证码</p>
+					<p class="psy" style="color: red;">注意：网页关闭后，需要重新进行验证</p>
+					<img src="https://www.blog.heheda.top/movie/image/wxgzh.jpg" style="width: 300px;"/>
+					<input class="form-control input-lg input-group" placeholder="请输入验证码" id="wxyzm" />
+					<button type="button" class="btn btn-info btn-lg btn-block" onclick="play(4)">#验证#</button>
+				</div> -->
 			</div>
 			<!-- 视频背景 -->
 			<video class="video" autoplay="autoplay" loop="loop" muted="muted" x5-video-player-type="h5-page"

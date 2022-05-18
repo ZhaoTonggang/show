@@ -3,61 +3,99 @@ var ismobile = false;
 window.innerWidth <= 550 ? ismobile = true : false;
 
 // 服务密令
-var toke = '1357246824681357';
+var toke = "1357246824681357";
+var coke = sessionStorage.getItem("ysjx");
+
+// 按钮控制
+function butshow() {
+	diz = document.getElementById("url").value.replace(/[\u4e00-\u9fa5]|(^\s*)|(\s*$)/g, '');
+	dbz = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/g;
+	jkurl = document.getElementById("jk");
+	jk = document.getElementById("jk").selectedIndex;
+	jkk = jkurl.options[jk].value;
+	jkv = CryptoJS.AES.decrypt(jkk, toke).toString(CryptoJS.enc.Utf8);
+	var daz = document.getElementById("ksbf");
+	var dck = document.getElementById("ckbf");
+	if (dbz.test(diz)) {
+		daz.disabled = false;
+		dck.disabled = false;
+	} else {
+		daz.disabled = true;
+		dck.disabled = true;
+	}
+}
 
 // 播放与界面控制
 function play(a) {
-	var diz = document.getElementById("url").value.replace(/[\u4e00-\u9fa5]|(^\s*)|(\s*$)/g, '');
-	var dbz = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/g;
-	var jkurl = document.getElementById("jk");
-	var jk = document.getElementById("jk").selectedIndex;
-	var jkk = jkurl.options[jk].value;
-	var jkv = CryptoJS.AES.decrypt(jkk, toke).toString(CryptoJS.enc.Utf8);
-	// 按钮显示控制
-	if (a == 0) {
-		var daz = document.getElementById("ksbf");
-		var dck = document.getElementById("ckbf");
-		if (dbz.test(diz)) {
-			daz.disabled = false;
-			dck.disabled = false;
-		} else {
-			daz.disabled = true;
-			dck.disabled = true;
-		}
-	}
 	// 开始播放
 	if (a == 1) {
-		var url = diz.indexOf("?")
-		var mgurl = diz.indexOf("migu")
-		if (mgurl != -1) {
-			var migu = diz.indexOf("&")
-			if (migu != -1) {
-				diz = diz.substring(0, migu)
+		if (coke == toke) {
+			var url = diz.indexOf("?")
+			var mgurl = diz.indexOf("migu")
+			if (mgurl != -1) {
+				var migu = diz.indexOf("&")
+				if (migu != -1) {
+					diz = diz.substring(0, migu)
+				}
+			} else {
+				if (url != -1) {
+					diz = diz.substring(0, url)
+				}
 			}
+			document.getElementById("url").value = diz;
+			document.getElementById("player").src = jkv + diz;
 		} else {
-			if (url != -1) {
-				diz = diz.substring(0, url)
-			}
+			return this.play(3);
 		}
-		document.getElementById("url").value = diz;
-		document.getElementById("player").src = jkv + diz;
 	}
 	// 窗口播放
 	if (a == 2) {
-		xtip.open({
-			type: 'u',
-			content: jkv + diz,
-			title: '窗口播放',
-			width: ismobile ? '90%' : '850px',
-			height: ismobile ? '50%' : '500px',
-			min: true,
-			max: true,
-			closeBtn: true,
-			shade: false
+		if (coke == toke) {
+			xtip.open({
+				type: 'u',
+				content: jkv + diz,
+				title: '窗口播放',
+				width: ismobile ? '90%' : '850px',
+				height: ismobile ? '50%' : '500px',
+				min: true,
+				max: true,
+				closeBtn: true,
+				shade: false
+			});
+		} else {
+			return this.play(3);
+		}
+	}
+	if (a == 3) {
+		xipid = xtip.open({
+			type: 'noready',
+			content: '#tip_content2',
+			shadeClose: false,
+			over: false,
+			width: ismobile ? '90%' : '500px',
+			height: ismobile ? '540px' : '520px'
 		});
 	}
+	if (a == 4) {
+		var yzm = document.getElementById("wxyzm").value;
+		if (yzm == 2276358 || yzm == 4680235 || yzm == 6825467) {
+			sessionStorage.setItem("ysjx", toke);
+			coke = sessionStorage.getItem("ysjx");
+			xtip.msg('验证码正确，请点击开始播放！', {
+				icon: 's'
+			});
+			return xtip.close(xipid);
+		} else if (yzm == '') {
+			xtip.msg('验证码不能为空！', {
+				icon: 'w'
+			});
+		} else {
+			xtip.msg('验证码错误，请重试！', {
+				icon: 'e'
+			});
+		}
+	}
 }
-setInterval("play(0)", 100);
 
 //搜索功能
 function sub() {
@@ -79,13 +117,8 @@ function othbut(b) {
 			width: ismobile ? '300px' : '500px',
 			height: ismobile ? '300px' : '500px',
 			content: '<img src="./image/zsm.png" style="width: 100%;"/>',
-			title: false,
 			over: false,
-			end: function() {
-				xtip.msg('小赵伤心的留下了一滴眼泪！', {
-					icon: 'w'
-				});
-			}
+			shadeClose: false
 		});
 	}
 	if (b == 2) {

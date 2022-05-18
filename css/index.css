@@ -113,6 +113,7 @@ select:hover {
 }
 
 .pst,
+.psy,
 #hitokoto {
 	margin: 0;
 	text-align: center;
@@ -121,6 +122,11 @@ select:hover {
 
 .pst {
 	color: white;
+}
+
+.psy {
+	color: #000;
+	font-size: 14px;
 }
 
 #hitokoto {
@@ -158,6 +164,11 @@ select:hover {
 
 .copy p {
 	margin: 0;
+}
+
+.tipyz {
+	text-align: center;
+	padding: 10px;
 }
 
 /* 滚动条 */
