@@ -72,8 +72,8 @@ function play(a) {
 			content: '#tip_content2',
 			shadeClose: false,
 			over: false,
-			width: ismobile ? '90%' : '500px',
-			height: ismobile ? '540px' : '520px'
+			width: '320px',
+			height: '530px'
 		});
 	}
 	if (a == 4) {
