@@ -1,6 +1,7 @@
 *,
 html {
-	cursor: url(../lib/cursor/Arrow.cur), default;
+	padding: 0;
+	margin: 0;
 }
 
 body {
@@ -12,7 +13,7 @@ a:hover,
 button:hover,
 input:hover,
 select:hover {
-	cursor: url(../lib/cursor/hand.cur), pointer;
+	cursor: pointer;
 }
 
 .bgdiv {

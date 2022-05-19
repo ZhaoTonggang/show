@@ -6,27 +6,32 @@ window.innerWidth <= 550 ? ismobile = true : false;
 var toke = "1357246824681357";
 var coke = sessionStorage.getItem("ysjx");
 
+// 获取必要参数
+var title = document.title;
+var href = window.location.href;
+if (!navigator.share) {
+	xtip.msg('自动分享函数不受浏览器支持，系统已为您自动禁用相关功能！', {
+		icon: 'w',
+		zindex: 999999,
+		times: 5
+	});
+	document.getElementById("fxbz").style.display = "none";
+}
+
 // 按钮控制
 function butshow() {
 	diz = document.getElementById("url").value.replace(/[\u4e00-\u9fa5]|(^\s*)|(\s*$)/g, '');
 	dbz = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/g;
+	var daz = document.getElementById("ksbf");
+	var dck = document.getElementById("ckbf");
+	dbz.test(diz) ? (daz.disabled = false, dck.disabled = false) : (daz.disabled = true, dck.disabled = true);
+}
+
+function play(a) {
 	jkurl = document.getElementById("jk");
 	jk = document.getElementById("jk").selectedIndex;
 	jkk = jkurl.options[jk].value;
 	jkv = CryptoJS.AES.decrypt(jkk, toke).toString(CryptoJS.enc.Utf8);
-	var daz = document.getElementById("ksbf");
-	var dck = document.getElementById("ckbf");
-	if (dbz.test(diz)) {
-		daz.disabled = false;
-		dck.disabled = false;
-	} else {
-		daz.disabled = true;
-		dck.disabled = true;
-	}
-}
-
-// 播放与界面控制
-function play(a) {
 	// 开始播放
 	if (a == 1) {
 		if (coke == toke) {
@@ -42,15 +47,15 @@ function play(a) {
 					diz = diz.substring(0, url)
 				}
 			}
-			document.getElementById("url").value = diz;
+			diz = document.getElementById("url").value;
 			document.getElementById("player").src = jkv + diz;
 		} else {
-			return this.play(3);
+			return yztc();
 		}
 	}
 	// 窗口播放
 	if (a == 2) {
-		if (coke == toke) {
+		if (toke == coke) {
 			xtip.open({
 				type: 'u',
 				content: jkv + diz,
@@ -63,37 +68,43 @@ function play(a) {
 				shade: false
 			});
 		} else {
-			return this.play(3);
+			return yztc();
 		}
 	}
-	if (a == 3) {
-		xipid = xtip.open({
-			type: 'noready',
-			content: '#tip_content2',
-			shadeClose: false,
-			over: false,
-			width: '320px',
-			height: '530px'
+}
+
+// 验证弹窗
+function yztc() {
+	xipid = xtip.open({
+		type: 'noready',
+		content: '#tip_content2',
+		shadeClose: false,
+		over: false,
+		width: '320px',
+		height: '530px'
+	});
+}
+
+// 判断输入内容
+function pdyz() {
+	yzm = document.getElementById("wxyzm").value = document.getElementById("wxyzm").value.replace(/[^\d]/g, '');
+	var yzs = document.getElementById("tjyzm");
+	yzm != "" ? yzs.disabled = false : yzs.disabled = true;
+}
+
+// 判断验证码
+function pdyzm() {
+	if (yzm == 2276358 || yzm == 4680235 || yzm == 6825467) {
+		sessionStorage.setItem("ysjx", toke);
+		coke = sessionStorage.getItem("ysjx");
+		xtip.msg('验证码正确，请点击开始播放！', {
+			icon: 's'
 		});
-	}
-	if (a == 4) {
-		var yzm = document.getElementById("wxyzm").value;
-		if (yzm == 2276358 || yzm == 4680235 || yzm == 6825467) {
-			sessionStorage.setItem("ysjx", toke);
-			coke = sessionStorage.getItem("ysjx");
-			xtip.msg('验证码正确，请点击开始播放！', {
-				icon: 's'
-			});
-			return xtip.close(xipid);
-		} else if (yzm == '') {
-			xtip.msg('验证码不能为空！', {
-				icon: 'w'
-			});
-		} else {
-			xtip.msg('验证码错误，请重试！', {
-				icon: 'e'
-			});
-		}
+		return xtip.close(xipid);
+	} else {
+		xtip.msg('验证码错误，请重试！', {
+			icon: 'e'
+		});
 	}
 }
 
@@ -141,100 +152,32 @@ function othbut(b) {
 }
 setTimeout("othbut(1)", 500);
 
-//收藏功能
-function addFavorite22() {
-	var url = window.location;
-	var title = document.title;
-	var ua = navigator.userAgent.toLowerCase();
-	if (ua.indexOf("360se") > -1) {
-		xtip.msg('由于360浏览器功能限制，请按 Ctrl+D 手动收藏！', {
-			icon: 'w'
-		});
-	} else if (ua.indexOf("msie 8") > -1) {
-		window.external.AddToFavoritesBar(url, title); //IE8
-	} else if (document.all) {
-		try {
-			window.external.addFavorite(url, title);
-		} catch (e) {
-			xtip.msg('您的浏览器不支持,请按 Ctrl+D 手动收藏!', {
-				icon: 'w'
-			});
-		}
-	} else if (window.sidebar) {
-		window.sidebar.addPanel(title, url, "");
-	} else {
-		xtip.msg('您的浏览器不支持,请按 Ctrl+D 手动收藏!', {
-			icon: 'w'
-		});
-	}
-}
-
 //分享功能
-var nativeShare = new NativeShare()
-var shareData = {
-	title: 'VIP影视解析',
-	desc: '一个链接，看遍天下！',
-	// 如果是微信该link的域名必须要在微信后台配置的安全域名之内的。
-	link: 'https://show.heheda.top/',
-	icon: './icons/512.png',
-	// 不要过于依赖以下两个回调，很多浏览器是不支持的
-	// success: function() {
-	//     alert('success')
-	// },
-	// fail: function() {
-	//     alert('fail')
-	// }
-}
-nativeShare.setShareData(shareData)
-
-function call(command) {
-	try {
-		nativeShare.call(command)
-	} catch (err) {
-		// 如果不支持，你可以在这里做降级处理
-		// alert(err.message)
-		xtip.msg('分享失败，请手动分享！', {
-			icon: 'w'
-		});
-	}
-}
-
-function setTitle(title) {
-	nativeShare.setShareData({
+function call() {
+	navigator.share({
 		title: title,
-	})
+		url: href,
+		text: '全网视频免费看，宅男必备！'
+	});
 }
 
 // 禁用浏览器调试
 window.onload = function() {
 	document.onkeydown = function() {
-		var e = window.event || arguments[0];
-		if (e.keyCode == 123) {
-			xtip.msg('禁止非法调试！', {
-				icon: 'w'
-			});
-			return false;
-		} else if ((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)) {
+		if (window.event && window.event.keyCode == 123) {
+			event.keyCode = 0;
+			event.returnValue = false;
 			xtip.msg('禁止非法调试！', {
 				icon: 'w'
 			});
 			return false;
 		}
-	};
-	// document.oncontextmenu = function() {
-	// xtip.msg('电脑请使用“Ctrl+V”粘贴<br />手机请长按粘贴', {
-	// 	icon: 'w'
-	// });
-	// 	return false;
-	// }
+	}
 }
 
 // 网站标题自动判断
-var title = document.title;
-
 function istitle() {
-	var isHidden = document.hidden;
-	if (isHidden) {
+	if (document.hidden) {
 		//当窗口不可见
 		document.title = '(つ ェ ⊂)我藏好了哦~';
 	} else {
