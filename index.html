@@ -47,7 +47,7 @@
 				<div class="input-group" style="width: 100%;">
 					<span class="input-group-addon input-lg">播放地址</span>
 					<input class="form-control input-lg" type="search" placeholder="手机请长按粘贴/电脑请使用“Ctrl+V”粘贴" id="url"
-						oninput="butshow()" />
+						oninput="play(0)" />
 				</div>
 				<div class="input-group" style="width: 100%;">
 					<span class="input-group-addon input-lg">选择线路</span>
@@ -158,9 +158,8 @@
 								<p>如需通过名称搜索内容，请在下方输入想要搜索的视频名称即可！</p>
 								<p style="color: red;">注意：搜索时间较长，请耐心等待数秒。</p>
 							</div>
-							<input tabindex="2" class="form-control input-lg input-group" id="sos" name="sousuo"
-								type="text" placeholder="请输入片名关键字 如：扫黑 决战" value="">
-							<button type="button" onclick="sub()" class="btn btn-info btn-lg btn-block">#开始搜索#</button>
+							<input tabindex="2" class="form-control input-lg input-group" id="sos" type="text" oninput="sub(1)" placeholder="请输入片名关键字" value="">
+							<button id="subt" type="button" onclick="sub(2)" class="btn btn-info btn-lg btn-block" disabled>#开始搜索#</button>
 						</td>
 					</tr>
 					<tr>

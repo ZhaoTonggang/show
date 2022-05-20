@@ -18,20 +18,18 @@ if (!navigator.share) {
 	document.getElementById("fxbz").style.display = "none";
 }
 
-// 按钮控制
-function butshow() {
-	diz = document.getElementById("url").value.replace(/[\u4e00-\u9fa5]|(^\s*)|(\s*$)/g, '');
-	dbz = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/g;
-	var daz = document.getElementById("ksbf");
-	var dck = document.getElementById("ckbf");
-	dbz.test(diz) ? (daz.disabled = false, dck.disabled = false) : (daz.disabled = true, dck.disabled = true);
-}
-
 function play(a) {
-	jkurl = document.getElementById("jk");
-	jk = document.getElementById("jk").selectedIndex;
-	jkk = jkurl.options[jk].value;
-	jkv = CryptoJS.AES.decrypt(jkk, toke).toString(CryptoJS.enc.Utf8);
+	if (a == 0) {
+		diz = document.getElementById("url").value.replace(/[\u4e00-\u9fa5]|(^\s*)|(\s*$)/g, '');
+		var dbz = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/g;
+		var daz = document.getElementById("ksbf");
+		var dck = document.getElementById("ckbf");
+		dbz.test(diz) ? (daz.disabled = false, dck.disabled = false) : (daz.disabled = true, dck.disabled = true);
+		return;
+	}
+	var jko = document.getElementById("jk").selectedIndex;
+	var jkk = document.getElementById("jk").options[jko].value;
+	var jkv = CryptoJS.AES.decrypt(jkk, toke).toString(CryptoJS.enc.Utf8);
 	// 开始播放
 	if (a == 1) {
 		if (coke == toke) {
@@ -50,12 +48,12 @@ function play(a) {
 			document.getElementById("url").value = diz;
 			document.getElementById("player").src = jkv + diz;
 		} else {
-			return yztc();
+			yztc();
 		}
 	}
 	// 窗口播放
 	if (a == 2) {
-		if (toke == coke) {
+		if (coke == toke) {
 			xtip.open({
 				type: 'u',
 				content: jkv + diz,
@@ -68,7 +66,7 @@ function play(a) {
 				shade: false
 			});
 		} else {
-			return yztc();
+			yztc();
 		}
 	}
 }
@@ -100,7 +98,7 @@ function pdyzm() {
 		xtip.msg('验证码正确，请点击开始播放！', {
 			icon: 's'
 		});
-		return xtip.close(xipid);
+		xtip.close(xipid);
 	} else {
 		xtip.msg('验证码错误，请重试！', {
 			icon: 'e'
@@ -108,12 +106,16 @@ function pdyzm() {
 	}
 }
 
-//搜索功能
-function sub() {
-	var sos = document.getElementById("sos").value.trim();
-	!sos ? xtip.msg('请输入片名关键字！', {
-		icon: 'w'
-	}) : window.open("https://movie.heheda.top/so.php?wd=" + sos, '_blank');
+// 搜索功能
+function sub(m) {
+	sos = document.getElementById("sos").value.trim();
+	if (m == 1) {
+		var subt = document.getElementById("subt");
+		!sos ? subt.disabled = true : subt.disabled = false;
+	}
+	if (m == 2) {
+		window.open("https://movie.heheda.top/so.php?wd=" + sos, '_blank');
+	}
 }
 
 //其他按钮
