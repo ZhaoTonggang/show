@@ -10,12 +10,12 @@ var coke = sessionStorage.getItem("ysjx");
 var title = document.title;
 var href = window.location.href;
 if (!navigator.share) {
+	document.getElementById("fxbz").style.display = "none";
 	xtip.msg('自动分享函数不受浏览器支持，系统已为您自动禁用相关功能！', {
 		icon: 'w',
 		zindex: 999999,
 		times: 5
 	});
-	document.getElementById("fxbz").style.display = "none";
 }
 
 function play(a) {
@@ -48,7 +48,7 @@ function play(a) {
 			document.getElementById("url").value = diz;
 			document.getElementById("player").src = jkv + diz;
 		} else {
-			yztc();
+			yztc(0);
 		}
 	}
 	// 窗口播放
@@ -66,43 +66,41 @@ function play(a) {
 				shade: false
 			});
 		} else {
-			yztc();
+			yztc(0);
 		}
 	}
 }
 
 // 验证弹窗
-function yztc() {
-	xipid = xtip.open({
-		type: 'noready',
-		content: '#tip_content2',
-		shadeClose: false,
-		over: false,
-		width: '320px',
-		height: '530px'
-	});
-}
-
-// 判断输入内容
-function pdyz() {
-	yzm = document.getElementById("wxyzm").value = document.getElementById("wxyzm").value.replace(/[^\d]/g, '');
-	var yzs = document.getElementById("tjyzm");
-	yzm != "" ? yzs.disabled = false : yzs.disabled = true;
-}
-
-// 判断验证码
-function pdyzm() {
-	if (yzm == 2276358 || yzm == 4680235 || yzm == 6825467) {
-		sessionStorage.setItem("ysjx", toke);
-		coke = sessionStorage.getItem("ysjx");
-		xtip.msg('验证码正确，请点击开始播放！', {
-			icon: 's'
+function yztc(n) {
+	if (n == 0) {
+		xipid = xtip.open({
+			type: 'h',
+			width: '320px',
+			height: '530px',
+			content: '<div class="tipyz"><p class="psy" style="color: red;">为了防止恶意访问，需要进行身份验证</p><p class="psy">请使用微信扫描下方二维码<br />或搜索微信公众号“一只小彤刚”<br />关注并回复“ysjx”获取验证码</p><p class="psy" style="color: red;">注意：网页关闭后，需要重新进行验证</p><img alt="图片载入中…" src="https://www.blog.heheda.top/movie/image/wxgzh.jpg" style="width: 300px;" /><input class="form-control input-lg input-group" placeholder="请输入数字验证码" id="wxyzm" oninput="yztc(1)" /><button id="tjyzm" type="button" class="btn btn-info btn-lg btn-block" onclick="yztc(2)" disabled>#验证#</button></div>',
+			shadeClose: false,
+			over: false
 		});
-		xtip.close(xipid);
-	} else {
-		xtip.msg('验证码错误，请重试！', {
-			icon: 'e'
-		});
+	}
+	if (n == 1) {
+		yzm = document.getElementById("wxyzm").value = document.getElementById("wxyzm").value.replace(/[^\d]/g, '');
+		var yzs = document.getElementById("tjyzm");
+		yzm != "" ? yzs.disabled = false : yzs.disabled = true;
+	}
+	if (n == 2) {
+		if (yzm == 2276358 || yzm == 4680235 || yzm == 6825467) {
+			sessionStorage.setItem("ysjx", toke);
+			coke = sessionStorage.getItem("ysjx");
+			xtip.msg('验证码正确，请点击开始播放！', {
+				icon: 's'
+			});
+			xtip.close(xipid);
+		} else {
+			xtip.msg('验证码错误，请重试！', {
+				icon: 'e'
+			});
+		}
 	}
 }
 
@@ -151,17 +149,15 @@ function othbut(b) {
 	if (b == 30) {
 		window.open("./app/ysjx.apk");
 	}
+	if (b == 4) {
+		navigator.share({
+			title: title,
+			url: href,
+			text: '全网视频免费看，宅男必备！'
+		});
+	}
 }
 setTimeout("othbut(1)", 500);
-
-//分享功能
-function call() {
-	navigator.share({
-		title: title,
-		url: href,
-		text: '全网视频免费看，宅男必备！'
-	});
-}
 
 // 禁用浏览器调试
 window.onload = function() {
