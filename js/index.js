@@ -47,7 +47,7 @@ function play(a) {
 					diz = diz.substring(0, url)
 				}
 			}
-			diz = document.getElementById("url").value;
+			document.getElementById("url").value = diz;
 			document.getElementById("player").src = jkv + diz;
 		} else {
 			return yztc();
