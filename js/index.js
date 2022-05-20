@@ -35,16 +35,16 @@ function play(a) {
 	// 开始播放
 	if (a == 1) {
 		if (coke == toke) {
-			var url = diz.indexOf("?")
-			var mgurl = diz.indexOf("migu")
+			var url = diz.indexOf("?");
+			var mgurl = diz.indexOf("migu");
 			if (mgurl != -1) {
-				var migu = diz.indexOf("&")
+				var migu = diz.indexOf("&");
 				if (migu != -1) {
-					diz = diz.substring(0, migu)
+					diz = diz.substring(0, migu);
 				}
 			} else {
 				if (url != -1) {
-					diz = diz.substring(0, url)
+					diz = diz.substring(0, url);
 				}
 			}
 			document.getElementById("url").value = diz;
@@ -185,5 +185,5 @@ function istitle() {
 		document.title = '(*゜ロ゜)ノ被发现了~';
 		setTimeout("document.title=title", 3000);
 	}
-};
+}
 document.addEventListener('visibilitychange', istitle);
