@@ -10,7 +10,6 @@
   "description": "免费全网影视解析服务",
   "scope": "./",
   "start_url": "./",
-  "related_applications": [],
   "prefer_related_applications": "false",
   "icons": [{
       "src": "icons/72x72.png",
