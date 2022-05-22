@@ -6,7 +6,7 @@ html {
 
 body {
 	font-family: YouYuan, KaiTi, Helvetica, Arial, sans-serif;
-	background-color: #272822 !important;
+	background: #202124 url(../image/bg.gif) no-repeat fixed center/cover;
 }
 
 a:hover,
