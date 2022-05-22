@@ -187,3 +187,11 @@ function istitle() {
 	}
 }
 document.addEventListener('visibilitychange', istitle);
+
+// 版权信息
+console.log("%c赵彤刚%c版权所有", "font-size:15px;padding:3px;color:white;background:#023047",
+	"font-size:15px;padding:3px;color:white;background:#219EBC");
+console.log("%c本人寻求一份前端开发的工作，有意者请联系%c\n%cTEL:15327682114%c\n%c微信:16699352957",
+	"font-size:15px;padding:3px;color:white;background:#023047", "",
+	"font-size:15px;padding:3px;color:white;background:#219EBC", "",
+	"font-size:15px;padding:3px;color:white;background:#219EBC");
