@@ -1,15 +1,14 @@
 //判断是否为移动设备
-var ismobile = false;
+let ismobile = false;
 window.innerWidth <= 550 ? ismobile = true : false;
 
 // 服务
-var toke = "1357246824681357";
-var coke = localStorage.getItem("yzxtg") || 0;
-var time = Math.round(new Date() / 1000) + Number(toke);
+let toke = "1357246824681357";
+let coke = localStorage.getItem("yzxtg") || 0;
+let time = Math.round(new Date() / 1000) + Number(toke);
 
 // 获取必要参数
-var title = document.title;
-var href = window.location.href;
+let title = document.title;
 if (!navigator.share) {
 	document.getElementById("fxbz").style.display = "none";
 	xtip.msg('自动分享函数不受浏览器支持，系统已为您自动禁用相关功能！', {
@@ -19,25 +18,36 @@ if (!navigator.share) {
 	});
 }
 
+// 监听屏幕滚动
+window.onscroll = function() {
+	let scro = document.documentElement.scrollTop || document.body.scrollTop;
+	let cla = document.getElementById("player");
+	if (scro >= 500) {
+		cla.classList.add("player-fix");
+	} else {
+		cla.classList.remove("player-fix");
+	}
+}
+
 function play(a) {
 	if (a == 0) {
 		diz = document.getElementById("url").value.replace(/[\u4e00-\u9fa5]|(^\s*)|(\s*$)/g, '');
-		var dbz = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/g;
-		var daz = document.getElementById("ksbf");
-		var dck = document.getElementById("ckbf");
+		let dbz = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/g;
+		let daz = document.getElementById("ksbf");
+		let dck = document.getElementById("ckbf");
 		dbz.test(diz) ? (daz.disabled = false, dck.disabled = false) : (daz.disabled = true, dck.disabled = true);
 		return;
 	}
-	var jko = document.getElementById("jk").selectedIndex;
-	var jkk = document.getElementById("jk").options[jko].value;
-	var jkv = CryptoJS.AES.decrypt(jkk, toke).toString(CryptoJS.enc.Utf8);
+	let jko = document.getElementById("jk").selectedIndex;
+	let jkk = document.getElementById("jk").options[jko].value;
+	let jkv = CryptoJS.AES.decrypt(jkk, toke).toString(CryptoJS.enc.Utf8);
 	// 开始播放
 	if (a == 1) {
 		if (time <= coke) {
-			var url = diz.indexOf("?");
-			var mgurl = diz.indexOf("migu");
+			let url = diz.indexOf("?");
+			let mgurl = diz.indexOf("migu");
 			if (mgurl != -1) {
-				var migu = diz.indexOf("&");
+				let migu = diz.indexOf("&");
 				if (migu != -1) {
 					diz = diz.substring(0, migu);
 				}
@@ -87,7 +97,7 @@ function yztc(n) {
 	}
 	if (n == 1) {
 		yzm = document.getElementById("wxyzm").value = document.getElementById("wxyzm").value.replace(/[^\d]/g, '');
-		var yzs = document.getElementById("tjyzm");
+		let yzs = document.getElementById("tjyzm");
 		yzm != "" ? yzs.disabled = false : yzs.disabled = true;
 	}
 	if (n == 2) {
@@ -110,7 +120,7 @@ function yztc(n) {
 function sub(m) {
 	sos = document.getElementById("sos").value.trim();
 	if (m == 1) {
-		var subt = document.getElementById("subt");
+		let subt = document.getElementById("subt");
 		!sos ? subt.disabled = true : subt.disabled = false;
 	}
 	if (m == 2) {
@@ -154,7 +164,7 @@ function othbut(b) {
 	if (b == 4) {
 		navigator.share({
 			title: title,
-			url: href,
+			url: window.location.href,
 			text: '全网视频免费看，宅男必备！'
 		});
 	}
