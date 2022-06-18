@@ -171,6 +171,24 @@ function othbut(b) {
 }
 setTimeout("othbut(1)", 500);
 
+// 通知
+if ("Notification" in window) {
+	if (window.Notification.permission == "granted") {
+		sendNotification();
+	} else if (window.Notification.permission != "denied") {
+		window.Notification.requestPermission(function(permission) {
+			sendNotification();
+		});
+	}
+}
+
+function sendNotification() {
+	new Notification(title, {
+		body: '久违了我的朋友，欢迎您的访问！全网视频免费看，宅男必备，喜欢别忘了收藏！',
+		icon: './icons/128x128.png'
+	})
+}
+
 // 禁用浏览器调试
 window.onload = function() {
 	document.onkeydown = function() {
