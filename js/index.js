@@ -81,7 +81,6 @@ function play(a) {
 		}
 	}
 }
-play(0);
 
 // 验证弹窗
 function yztc(n) {
