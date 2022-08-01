@@ -118,7 +118,7 @@ function yztc(n) {
 		yzm != "" ? yzs.disabled = false : yzs.disabled = true;
 	}
 	if (n == 2) {
-		if (yzm == 2276358 || 4680235 || 6825467) {
+		if (yzm == 2276358 || yzm == 4680235 || yzm == 6825467) {
 			localStorage.setItem("yzxtg", time + 432000);
 			coke = localStorage.getItem("yzxtg");
 			xtip.msg('验证码正确，请点击开始播放！', {
