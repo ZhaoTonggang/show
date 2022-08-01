@@ -5,6 +5,7 @@ window.innerWidth <= 550 ? ismobile = true : false;
 // 服务
 let toke = "1357246824681357";
 let coke = localStorage.getItem("yzxtg") || 0;
+alert(coke);
 let time = Math.round(new Date() / 1000) + Number(toke);
 
 // 获取必要参数
@@ -44,6 +45,8 @@ function play(a) {
 	// 开始播放
 	if (a == 1) {
 		if (time <= coke) {
+			localStorage.setItem("yzxtg", time + 432000);
+			coke = localStorage.getItem("yzxtg");
 			let url = diz.indexOf("?");
 			let mgurl = diz.indexOf("migu");
 			if (mgurl != -1) {
@@ -65,6 +68,21 @@ function play(a) {
 	// 窗口播放
 	if (a == 2) {
 		if (time <= coke) {
+			localStorage.setItem("yzxtg", time + 432000);
+			coke = localStorage.getItem("yzxtg");
+			let url = diz.indexOf("?");
+			let mgurl = diz.indexOf("migu");
+			if (mgurl != -1) {
+				let migu = diz.indexOf("&");
+				if (migu != -1) {
+					diz = diz.substring(0, migu);
+				}
+			} else {
+				if (url != -1) {
+					diz = diz.substring(0, url);
+				}
+			}
+			document.getElementById("url").value = diz;
 			xtip.open({
 				type: 'u',
 				content: jkv + diz,
@@ -90,7 +108,7 @@ function yztc(n) {
 			type: 'h',
 			width: '320px',
 			height: '530px',
-			content: '<div class="tipyz"><p class="psy" style="color: red;">为了防止恶意访问，需要进行身份验证</p><p class="psy">请使用微信扫描下方二维码<br />或搜索微信公众号“一只小彤刚”<br />关注并回复“ysjx”获取验证码</p><p class="psy" style="color: red;">注意：验证成功后，5天内免验证</p><img alt="图片载入中…" src="https://www.blog.heheda.top/movie/image/wxgzh.jpg" style="width: 300px;" /><input class="form-control input-lg input-group" placeholder="请输入数字验证码" id="wxyzm" oninput="yztc(1)" /><button id="tjyzm" type="button" class="btn btn-info btn-lg btn-block" onclick="yztc(2)" disabled>#验证#</button></div>',
+			content: '<div class="tipyz"><p class="psy" style="color: red;">为防止恶意访问，需进行身份验证</p><p class="psy">请使用微信扫描下方二维码<br />或搜索微信公众号“一只小彤刚”<br />关注并回复“ysjx”获取验证码</p><p class="psy" style="color: red;">注意:连续5天未使用需重新验证!</p><img alt="图片载入中…" src="https://www.blog.heheda.top/movie/image/wxgzh.jpg" style="width: 300px;" /><input class="form-control input-lg input-group" placeholder="请输入数字验证码" id="wxyzm" oninput="yztc(1)" /><button id="tjyzm" type="button" class="btn btn-info btn-lg btn-block" onclick="yztc(2)" disabled>#验证#</button></div>',
 			shadeClose: false,
 			over: false
 		});
@@ -101,7 +119,7 @@ function yztc(n) {
 		yzm != "" ? yzs.disabled = false : yzs.disabled = true;
 	}
 	if (n == 2) {
-		if (yzm == 2276358 || yzm == 4680235 || yzm == 6825467) {
+		if (yzm == 2276358 || 4680235 || 6825467) {
 			localStorage.setItem("yzxtg", time + 432000);
 			coke = localStorage.getItem("yzxtg");
 			xtip.msg('验证码正确，请点击开始播放！', {
@@ -139,7 +157,7 @@ function othbut(b) {
 			type: 'h',
 			width: ismobile ? '300px' : '500px',
 			height: ismobile ? '300px' : '500px',
-			content: '<img src="./image/zsm.png" style="width: 100%;"/>',
+			content: '<img src="./image/zsm.jpg" style="width: 100%;"/>',
 			over: false,
 			shadeClose: false
 		});
