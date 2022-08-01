@@ -5,7 +5,6 @@ window.innerWidth <= 550 ? ismobile = true : false;
 // 服务
 let toke = "1357246824681357";
 let coke = localStorage.getItem("yzxtg") || 0;
-alert(coke);
 let time = Math.round(new Date() / 1000) + Number(toke);
 
 // 获取必要参数
