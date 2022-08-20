@@ -6,7 +6,7 @@ html {
 
 body {
 	font-family: YouYuan, KaiTi, Helvetica, Arial, sans-serif;
-	background: #202124 url(../image/bg.gif) no-repeat fixed center/cover;
+	background: #202124 url(../image/bg.jpg) repeat fixed center/150%;
 }
 
 a:hover,
@@ -16,9 +16,14 @@ select:hover {
 	cursor: pointer;
 }
 
+body,
+.bgdiv {
+	animation: rlactivity 20s linear infinite;
+	-webkit-animation: rlactivity 20s linear infinite;
+}
+
 .bgdiv {
 	background: linear-gradient(45deg, rgba(0, 0, 0, 0.4), rgba(255, 0, 0, 0.4), rgba(255, 170, 0, 0.4), rgba(255, 255, 0, 0.4), rgba(0, 255, 0, 0.4), rgba(85, 255, 255, 0.4), rgba(0, 85, 255, 0.4), rgba(85, 0, 127, 0.4), rgba(255, 255, 255, 0.4)) no-repeat center/1000%;
-	animation: rlactivity 20s infinite;
 }
 
 .section1 {
@@ -106,17 +111,17 @@ select:hover {
 	color: white;
 }
 
-#kj{
+#kj {
 	height: 452px;
 }
 
-#player {	
+#player {
 	background: #000 url(../image/loding.gif) no-repeat center/cover;
 	border-radius: 10px;
 	display: block;
 }
 
-.player{
+.player {
 	width: 100%;
 	height: 400px;
 }
@@ -216,6 +221,20 @@ select:hover {
 
 /* 左右晃动效果 */
 @keyframes rlactivity {
+	0% {
+		background-position: 0% 50%;
+	}
+
+	50% {
+		background-position: 100% 50%;
+	}
+
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@-webkit-keyframes rlactivity {
 	0% {
 		background-position: 0% 50%;
 	}

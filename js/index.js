@@ -18,6 +18,20 @@ if (!navigator.share) {
 	});
 }
 
+// 禁用浏览器调试
+window.onload = function() {
+	document.onkeydown = function() {
+		if (window.event && window.event.keyCode == 123) {
+			event.keyCode = 0;
+			event.returnValue = false;
+			xtip.msg('禁止非法调试！', {
+				icon: 'w'
+			});
+			return false;
+		}
+	}
+}
+
 // 监听屏幕滚动
 window.onscroll = function() {
 	let scro = document.documentElement.scrollTop || document.body.scrollTop;
@@ -204,20 +218,6 @@ function sendNotification() {
 		body: '久违了我的朋友，欢迎您的访问！全网视频免费看，宅男必备，喜欢别忘了收藏！',
 		icon: './icons/128x128.png'
 	})
-}
-
-// 禁用浏览器调试
-window.onload = function() {
-	document.onkeydown = function() {
-		if (window.event && window.event.keyCode == 123) {
-			event.keyCode = 0;
-			event.returnValue = false;
-			xtip.msg('禁止非法调试！', {
-				icon: 'w'
-			});
-			return false;
-		}
-	}
 }
 
 // 网站标题自动判断
