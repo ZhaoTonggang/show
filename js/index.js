@@ -170,7 +170,7 @@ function othbut(b) {
 			type: 'h',
 			width: ismobile ? '300px' : '500px',
 			height: ismobile ? '300px' : '500px',
-			content: '<img src="./image/zsm.jpg" style="width: 100%;"/>',
+			content: '<img alt="赞赏码" src="./image/zsm.jpg" style="width: 100%;height: auto;"/>',
 			over: false,
 			shadeClose: false
 		});
