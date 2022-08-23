@@ -56,7 +56,7 @@ function play(a) {
 	let jkk = document.getElementById("jk").options[jko].value;
 	let jkv = CryptoJS.AES.decrypt(jkk, toke).toString(CryptoJS.enc.Utf8);
 	// 开始播放
-	if (a == 1) {
+	else if (a == 1) {
 		if (time <= coke) {
 			localStorage.setItem("yzxtg", time + 432000);
 			coke = localStorage.getItem("yzxtg");
@@ -79,7 +79,7 @@ function play(a) {
 		}
 	}
 	// 窗口播放
-	if (a == 2) {
+	else if (a == 2) {
 		if (time <= coke) {
 			localStorage.setItem("yzxtg", time + 432000);
 			coke = localStorage.getItem("yzxtg");
@@ -125,13 +125,11 @@ function yztc(n) {
 			shadeClose: false,
 			over: false
 		});
-	}
-	if (n == 1) {
+	} else if (n == 1) {
 		yzm = document.getElementById("wxyzm").value = document.getElementById("wxyzm").value.replace(/[^\d]/g, '');
 		let yzs = document.getElementById("tjyzm");
 		yzm != "" ? yzs.disabled = false : yzs.disabled = true;
-	}
-	if (n == 2) {
+	} else if (n == 2) {
 		if (yzm == 2276358 || yzm == 4680235 || yzm == 6825467) {
 			localStorage.setItem("yzxtg", time + 432000);
 			coke = localStorage.getItem("yzxtg");
@@ -153,8 +151,7 @@ function sub(m) {
 	if (m == 1) {
 		let subt = document.getElementById("subt");
 		!sos ? subt.disabled = true : subt.disabled = false;
-	}
-	if (m == 2) {
+	} else if (m == 2) {
 		window.open("https://movie.heheda.top/so.php?wd=" + sos, '_blank');
 	}
 }
@@ -165,7 +162,7 @@ function othbut(b) {
 		window.open("mailto:2585649532@qq.com");
 	}
 	// 赞赏码
-	if (b == 1) {
+	else if (b == 1) {
 		xtip.open({
 			type: 'h',
 			width: ismobile ? '300px' : '500px',
@@ -174,12 +171,11 @@ function othbut(b) {
 			over: false,
 			shadeClose: false
 		});
-	}
-	if (b == 2) {
+	} else if (b == 2) {
 		window.open("https://wj.qq.com/s2/9759503/e350/");
 	}
 	// 下载APP
-	if (b == 3) {
+	else if (b == 3) {
 		xtip.open({
 			type: 'h',
 			width: ismobile ? '90%' : '55%',
@@ -188,11 +184,9 @@ function othbut(b) {
 			title: false,
 			over: false
 		});
-	}
-	if (b == 30) {
+	} else if (b == 30) {
 		window.open("./app/ysjx.apk");
-	}
-	if (b == 4) {
+	} else if (b == 4) {
 		navigator.share({
 			title: title,
 			url: window.location.href,
