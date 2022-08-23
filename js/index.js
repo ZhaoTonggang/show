@@ -44,19 +44,16 @@ window.onscroll = function() {
 }
 
 function play(a) {
+	let jko = document.getElementById("jk").selectedIndex;
+	let jkk = document.getElementById("jk").options[jko].value;
+	let jkv = CryptoJS.AES.decrypt(jkk, toke).toString(CryptoJS.enc.Utf8);
 	if (a == 0) {
 		diz = document.getElementById("url").value.replace(/[\u4e00-\u9fa5]|(^\s*)|(\s*$)/g, '');
 		let dbz = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/g;
 		let daz = document.getElementById("ksbf");
 		let dck = document.getElementById("ckbf");
 		dbz.test(diz) ? (daz.disabled = false, dck.disabled = false) : (daz.disabled = true, dck.disabled = true);
-		return;
-	}
-	let jko = document.getElementById("jk").selectedIndex;
-	let jkk = document.getElementById("jk").options[jko].value;
-	let jkv = CryptoJS.AES.decrypt(jkk, toke).toString(CryptoJS.enc.Utf8);
-	// 开始播放
-	else if (a == 1) {
+	} else if (a == 1) {
 		if (time <= coke) {
 			localStorage.setItem("yzxtg", time + 432000);
 			coke = localStorage.getItem("yzxtg");
@@ -77,9 +74,7 @@ function play(a) {
 		} else {
 			yztc(0);
 		}
-	}
-	// 窗口播放
-	else if (a == 2) {
+	} else if (a == 2) {
 		if (time <= coke) {
 			localStorage.setItem("yzxtg", time + 432000);
 			coke = localStorage.getItem("yzxtg");
@@ -87,13 +82,9 @@ function play(a) {
 			let mgurl = diz.indexOf("migu");
 			if (mgurl != -1) {
 				let migu = diz.indexOf("&");
-				if (migu != -1) {
-					diz = diz.substring(0, migu);
-				}
+				diz = diz.substring(0, migu);
 			} else {
-				if (url != -1) {
-					diz = diz.substring(0, url);
-				}
+				diz = diz.substring(0, url);
 			}
 			document.getElementById("url").value = diz;
 			xtip.open({
