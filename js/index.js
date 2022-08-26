@@ -82,9 +82,13 @@ function play(a) {
 			let mgurl = diz.indexOf("migu");
 			if (mgurl != -1) {
 				let migu = diz.indexOf("&");
-				diz = diz.substring(0, migu);
+				if (migu != -1) {
+					diz = diz.substring(0, migu);
+				}
 			} else {
-				diz = diz.substring(0, url);
+				if (url != -1) {
+					diz = diz.substring(0, url);
+				}
 			}
 			document.getElementById("url").value = diz;
 			xtip.open({
