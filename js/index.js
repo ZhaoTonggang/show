@@ -47,13 +47,13 @@ function play(a) {
 	let jko = document.getElementById("jk").selectedIndex;
 	let jkk = document.getElementById("jk").options[jko].value;
 	let jkv = CryptoJS.AES.decrypt(jkk, toke).toString(CryptoJS.enc.Utf8);
-	if (a == 0) {
+	if (a === 0) {
 		diz = document.getElementById("url").value.replace(/[\u4e00-\u9fa5]|(^\s*)|(\s*$)/g, '');
 		let dbz = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/g;
 		let daz = document.getElementById("ksbf");
 		let dck = document.getElementById("ckbf");
 		dbz.test(diz) ? (daz.disabled = false, dck.disabled = false) : (daz.disabled = true, dck.disabled = true);
-	} else if (a == 1) {
+	} else if (a === 1) {
 		if (time <= coke) {
 			localStorage.setItem("yzxtg", time + 432000);
 			coke = localStorage.getItem("yzxtg");
@@ -74,7 +74,7 @@ function play(a) {
 		} else {
 			yztc(0);
 		}
-	} else if (a == 2) {
+	} else if (a === 2) {
 		if (time <= coke) {
 			localStorage.setItem("yzxtg", time + 432000);
 			coke = localStorage.getItem("yzxtg");
@@ -110,7 +110,7 @@ function play(a) {
 
 // 验证弹窗
 function yztc(n) {
-	if (n == 0) {
+	if (n === 0) {
 		localStorage.removeItem("yzxtg");
 		xipid = xtip.open({
 			type: 'h',
@@ -120,11 +120,11 @@ function yztc(n) {
 			shadeClose: false,
 			over: false
 		});
-	} else if (n == 1) {
+	} else if (n === 1) {
 		yzm = document.getElementById("wxyzm").value = document.getElementById("wxyzm").value.replace(/[^\d]/g, '');
 		let yzs = document.getElementById("tjyzm");
 		yzm != "" ? yzs.disabled = false : yzs.disabled = true;
-	} else if (n == 2) {
+	} else if (n === 2) {
 		if (yzm == 2276358 || yzm == 4680235 || yzm == 6825467) {
 			localStorage.setItem("yzxtg", time + 432000);
 			coke = localStorage.getItem("yzxtg");
@@ -143,21 +143,23 @@ function yztc(n) {
 // 搜索功能
 function sub(m) {
 	sos = document.getElementById("sos").value.trim();
-	if (m == 1) {
+	if (m === 1) {
 		let subt = document.getElementById("subt");
 		!sos ? subt.disabled = true : subt.disabled = false;
-	} else if (m == 2) {
+	} else if (m === 2) {
 		window.open("https://movie.heheda.top/so.php?wd=" + sos, '_blank');
 	}
 }
 
 //其他按钮
 function othbut(b) {
-	if (b == 0) {
-		window.open("mailto:2585649532@qq.com");
+	if (b === 0) {
+		window.open(
+			"https://openai.weixin.qq.com/webapp/NlFdeGGV6J4GfwxPImLX9mxGXzkSHg?robotName=%E5%BD%B1%E8%A7%86%E8%A7%A3%E6%9E%90"
+			);
 	}
 	// 赞赏码
-	else if (b == 1) {
+	else if (b === 1) {
 		xtip.open({
 			type: 'h',
 			width: ismobile ? '300px' : '500px',
@@ -166,11 +168,11 @@ function othbut(b) {
 			over: false,
 			shadeClose: false
 		});
-	} else if (b == 2) {
+	} else if (b === 2) {
 		window.open("https://wj.qq.com/s2/9759503/e350/");
 	}
 	// 下载APP
-	else if (b == 3) {
+	else if (b === 3) {
 		xtip.open({
 			type: 'h',
 			width: ismobile ? '90%' : '55%',
@@ -179,9 +181,9 @@ function othbut(b) {
 			title: false,
 			over: false
 		});
-	} else if (b == 30) {
+	} else if (b === 30) {
 		window.open("./app/ysjx.apk");
-	} else if (b == 4) {
+	} else if (b === 4) {
 		navigator.share({
 			title: title,
 			url: window.location.href,
