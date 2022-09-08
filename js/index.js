@@ -19,8 +19,8 @@ if (!navigator.share) {
 }
 
 // 禁用浏览器调试
-window.onload = function() {
-	document.onkeydown = function() {
+function jyts() {
+	document.onkeydown = () => {
 		if (window.event && window.event.keyCode == 123) {
 			event.keyCode = 0;
 			event.returnValue = false;
@@ -32,8 +32,41 @@ window.onload = function() {
 	}
 }
 
+//获取线路状态
+function xlzt() {
+	let opts = document.getElementById("jk").options;
+	for (let a = 0; a < opts.length; a++) {
+		let optv = opts[a].value;
+		let optvs = CryptoJS.AES.decrypt(optv, toke).toString(CryptoJS.enc.Utf8);
+		let xmlhttp = new XMLHttpRequest();
+		if (xmlhttp != null) {
+			xmlhttp.open("GET", optvs, true);
+			xmlhttp.onreadystatechange = () => {
+				if (xmlhttp.readyState === 4) {
+					let status = xmlhttp.status;
+					if (status >= 200 && status < 300 || status === 304) {
+						opts[a].style.color = "green";
+					} else {
+						opts[a].style.color = "red";
+					}
+				}
+			};
+			xmlhttp.send();
+		} else {
+			xtip.msg('您的浏览器不支持XMLHTTP！', {
+				icon: 'w'
+			});
+		}
+	}
+}
+
+window.onload = () => {
+	jyts();
+	xlzt();
+}
+
 // 监听屏幕滚动
-window.onscroll = function() {
+window.onscroll = () => {
 	let scro = document.documentElement.scrollTop || document.body.scrollTop;
 	let cla = document.getElementById("player");
 	if (scro >= 500) {
@@ -156,7 +189,7 @@ function othbut(b) {
 	if (b === 0) {
 		window.open(
 			"https://openai.weixin.qq.com/webapp/NlFdeGGV6J4GfwxPImLX9mxGXzkSHg?robotName=%E5%BD%B1%E8%A7%86%E8%A7%A3%E6%9E%90"
-			);
+		);
 	}
 	// 赞赏码
 	else if (b === 1) {

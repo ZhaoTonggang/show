@@ -99,6 +99,10 @@ body,
 	height: 452px;
 }
 
+#jk option{
+	font-weight: bold;
+}
+
 #player {
 	background: #000 url(../image/loding.gif) no-repeat center/cover;
 	border-radius: 10px;
