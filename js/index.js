@@ -19,50 +19,15 @@ if (!navigator.share) {
 }
 
 // 禁用浏览器调试
-function jyts() {
-	document.onkeydown = () => {
-		if (window.event && window.event.keyCode == 123) {
-			event.keyCode = 0;
-			event.returnValue = false;
-			xtip.msg('禁止非法调试！', {
-				icon: 'w'
-			});
-			return false;
-		}
+window.onkeydown = () => {
+	if (window.event && window.event.keyCode == 123) {
+		event.keyCode = 0;
+		event.returnValue = false;
+		xtip.msg('禁止非法调试！', {
+			icon: 'w'
+		});
+		return false;
 	}
-}
-
-//获取线路状态
-function xlzt() {
-	let opts = document.getElementById("jk").options;
-	for (let a = 0; a < opts.length; a++) {
-		let optv = opts[a].value;
-		let optvs = CryptoJS.AES.decrypt(optv, toke).toString(CryptoJS.enc.Utf8);
-		let xmlhttp = new XMLHttpRequest();
-		if (xmlhttp != null) {
-			xmlhttp.open("GET", optvs, true);
-			xmlhttp.onreadystatechange = () => {
-				if (xmlhttp.readyState === 4) {
-					let status = xmlhttp.status;
-					if (status >= 200 && status < 300 || status === 304) {
-						opts[a].style.color = "green";
-					} else {
-						opts[a].style.color = "red";
-					}
-				}
-			};
-			xmlhttp.send();
-		} else {
-			xtip.msg('您的浏览器不支持XMLHTTP！', {
-				icon: 'w'
-			});
-		}
-	}
-}
-
-window.onload = () => {
-	jyts();
-	xlzt();
 }
 
 // 监听屏幕滚动
@@ -227,6 +192,13 @@ function othbut(b) {
 setTimeout("othbut(1)", 500);
 
 // 通知
+function sendNotification() {
+	new Notification(title, {
+		body: '久违了我的朋友，欢迎您的访问！全网视频免费看，宅男必备，喜欢别忘了收藏！',
+		icon: './icons/128x128.png'
+	})
+}
+
 if ("Notification" in window) {
 	if (window.Notification.permission == "granted") {
 		sendNotification();
@@ -235,13 +207,6 @@ if ("Notification" in window) {
 			sendNotification();
 		});
 	}
-}
-
-function sendNotification() {
-	new Notification(title, {
-		body: '久违了我的朋友，欢迎您的访问！全网视频免费看，宅男必备，喜欢别忘了收藏！',
-		icon: './icons/128x128.png'
-	})
 }
 
 // 网站标题自动判断
