@@ -2,6 +2,10 @@
 let ismobile = false;
 window.innerWidth <= 550 ? ismobile = true : false;
 
+let music = new Audio("./audio/a1.mp3");
+
+let yzaudio = new Audio("./audio/a2.mp3");
+
 // 服务
 let toke = "1357246824681357";
 let coke = localStorage.getItem("yzxtg") || 0;
@@ -71,6 +75,9 @@ function play(a) {
 			}
 			document.getElementById("url").value = diz;
 			document.getElementById("player").src = jkv + diz;
+			music.pause();
+			music.currentTime = 0;
+			music.play();
 		} else {
 			yztc(0);
 		}
@@ -102,6 +109,9 @@ function play(a) {
 				closeBtn: true,
 				shade: false
 			});
+			music.pause();
+			music.currentTime = 0;
+			music.play();
 		} else {
 			yztc(0);
 		}
@@ -111,6 +121,10 @@ function play(a) {
 // 验证弹窗
 function yztc(n) {
 	if (n === 0) {
+		music.pause();
+		yzaudio.currentTime = 0;
+		yzaudio.pause();
+		yzaudio.play();
 		localStorage.removeItem("yzxtg");
 		xipid = xtip.open({
 			type: 'h',
@@ -118,7 +132,12 @@ function yztc(n) {
 			height: '530px',
 			content: '<div class="tipyz"><p class="psy" style="color: red;">为防止恶意访问，需进行身份验证</p><p class="psy">请使用微信扫描下方二维码<br />或搜索微信公众号“一只小彤刚”<br />关注并回复“ysjx”获取验证码</p><p class="psy" style="color: red;">注意:连续5天未使用需重新验证!</p><img alt="图片载入中…" src="https://www.blog.heheda.top/movie/image/wxgzh.jpg" style="width: 300px;" /><input class="form-control input-lg input-group" placeholder="请输入数字验证码" id="wxyzm" oninput="yztc(1)" /><button id="tjyzm" type="button" class="btn btn-info btn-lg btn-block" onclick="yztc(2)" disabled>#验证#</button></div>',
 			shadeClose: false,
-			over: false
+			over: false,
+			end: function() {
+				yzaudio.pause();
+				music.currentTime = 0;
+				music.play();
+			}
 		});
 	} else if (n === 1) {
 		yzm = document.getElementById("wxyzm").value = document.getElementById("wxyzm").value.replace(/[^\d]/g, '');
@@ -126,6 +145,9 @@ function yztc(n) {
 		yzm != "" ? yzs.disabled = false : yzs.disabled = true;
 	} else if (n === 2) {
 		if (yzm == 2276358 || yzm == 4680235 || yzm == 6825467) {
+			yzaudio.pause();
+			music.currentTime = 0;
+			music.play();
 			localStorage.setItem("yzxtg", time + 432000);
 			coke = localStorage.getItem("yzxtg");
 			xtip.msg('验证码正确，请点击开始播放！', {
@@ -166,7 +188,12 @@ function othbut(b) {
 			height: ismobile ? '300px' : '500px',
 			content: '<img alt="赞赏码" src="./image/zsm.jpg" style="width: 100%;height: auto;"/>',
 			over: false,
-			shadeClose: false
+			shadeClose: false,
+			end: function() {
+				music.pause();
+				music.currentTime = 0;
+				music.play();
+			},
 		});
 	} else if (b === 2) {
 		window.open("https://wj.qq.com/s2/9759503/e350/");
@@ -179,7 +206,7 @@ function othbut(b) {
 			height: '120px',
 			content: '<div style="padding:5px"><button type="button" onclick="othbut(30)" class="btn btn-success btn-lg btn-block">#安卓版本#</button><button type="button" onclick="xzapp-ios()" class="btn btn-success btn-lg btn-block" disabled>#IOS版本#</button></div>',
 			title: false,
-			over: false
+			over: false,
 		});
 	} else if (b === 30) {
 		window.open("./app/ysjx.apk");
