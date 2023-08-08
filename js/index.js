@@ -50,7 +50,9 @@ function play(a) {
 		let dbz = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/g;
 		let daz = document.getElementById("ksbf");
 		let dck = document.getElementById("ckbf");
-		dbz.test(diz) ? (daz.disabled = false, dck.disabled = false) : (daz.disabled = true, dck.disabled = true);
+		// let das = document.getElementById("subt");
+		dbz.test(diz) ? (daz.style.display = "block", dck.style.display = "block") : (daz.style.display = "none", dck
+			.style.display = "none");
 	} else if (a === 1) {
 		if (time <= coke) {
 			localStorage.setItem("yzxtg", time + 432000);
