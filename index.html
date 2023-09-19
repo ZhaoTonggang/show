@@ -47,19 +47,18 @@
 			</div>
 			<div class="col-md-14 column">
 				<div class="input-group" style="width: 100%;">
-					<span class="input-group-addon input-lg">播放地址</span>
+					<span class="input-group-addon input-lg">名称或地址</span>
 					<input class="form-control input-lg" type="search" placeholder="手机请长按粘贴/电脑请使用“Ctrl+V”粘贴" id="url"
 						oninput="play(0)" />
 				</div>
-				<div class="input-group" style="width: 100%;">
-					<span class="input-group-addon input-lg">选择线路</span>
+				<div class="input-group" style="width: 100%;" id="cxl">
+					<span class="input-group-addon input-lg">请选择线路</span>
 					<select class="form-control input-lg" id="jk">
 						<option
 							value="U2FsdGVkX1+gCZ4H1b/vNGLMPmTCBnb1W9atmxVtRJ+7YaRYZOJNMoEyzCHPaXfskQP8pK78ZjEgJhl6eRitLw=="
 							selected>
 							线路〇</option>
-						<option
-							value="U2FsdGVkX1+44Tx5duEEFx0cfw+BeNwsBcGiz6W0CqXp6qdBBQ2Dl0ZmEiG5fXHL3S3lif4HYThIrJRmBMcRlQ==">
+						<option value="U2FsdGVkX184H+CxSKNY1W6aXD/wEOJfYXeu0UNFI3Tan9wuos8dRLuwdgjB0M08">
 							线路壹</option>
 						<option value="U2FsdGVkX1+dKKk+2n3WUnC55eOncOb/oXYvcCNdv/CdcSPkbYIy9XvSGxbggBwt">线路贰</option>
 						<option value="U2FsdGVkX18mynSrnmuMKMtKfq4DhzwkIyTkjljnR8a/y4gQeQtzMCNe4s3fKJOM">线路叁</option>
@@ -151,19 +150,6 @@
 					</tr> -->
 					<tr>
 						<td>
-							<p class="tita">视频搜索:</p>
-							<div class="language">
-								<p>如需通过名称搜索内容，请在下方输入想要搜索的视频名称即可！</p>
-								<p style="color: red;">注意：搜索时间较长，请耐心等待数秒。</p>
-							</div>
-							<input class="form-control input-lg input-group" id="sos" type="text" oninput="sub(1)"
-								placeholder="请输入片名关键字" value="">
-							<button id="subt" type="button" onclick="sub(2)" class="btn btn-info btn-lg btn-block"
-								disabled>#开始搜索#</button>
-						</td>
-					</tr>
-					<tr>
-						<td>
 							<p class="tita">友情链接:</p>
 							<div class="language">
 								<a target="_blank" class="btn2" title="赵彤刚的博客"
@@ -192,7 +178,7 @@
 				<div class="copy">
 					<p>本站使用开源框架<a href="https://www.bootcss.com/" target="_blank" title="Bootstrap中文网">Bootstrap</a>开发
 					</p>
-					<p><a href="./" title="风影阁解析">风影阁解析</a>(v2.1.7) © Powered By <a href="https://my.heheda.top/"
+					<p><a href="./" title="风影阁解析">风影阁解析</a>(v2.2.0) © Powered By <a href="https://my.heheda.top/"
 							target="_blank" title="赵彤刚的小屋">赵彤刚</a></p>
 				</div>
 			</div>

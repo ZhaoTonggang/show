@@ -50,13 +50,26 @@ function play(a) {
 	let jkk = document.getElementById("jk").options[jko].value;
 	let jkv = CryptoJS.AES.decrypt(jkk, toke).toString(CryptoJS.enc.Utf8);
 	if (a === 0) {
-		diz = document.getElementById("url").value.replace(/[\u4e00-\u9fa5]|(^\s*)|(\s*$)/g, '');
+		dcn = /^[\u4E00-\u9FA5]+$/;
+		dzz = document.getElementById("url").value;
+		diz = dzz.replace(/[\u4e00-\u9fa5]|(^\s*)|(\s*$)/g, '');
 		let dbz = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/g;
 		let daz = document.getElementById("ksbf");
 		let dck = document.getElementById("ckbf");
-		// let das = document.getElementById("subt");
-		dbz.test(diz) ? (daz.style.display = "block", dck.style.display = "block") : (daz.style.display = "none", dck
-			.style.display = "none");
+		let cxl = document.getElementById("cxl");
+		if (dbz.test(diz)) {
+			daz.style.display = "block";
+			dck.style.display = "block";
+		} else if (dcn.test(dzz)) {
+			cxl.style.display = "none";
+			daz.style.display = "block";
+			daz.innerText = "#开始搜索#";
+		} else {
+			cxl.style.display = "table";
+			daz.style.display = "none";
+			dck.style.display = "none";
+			daz.innerText = "#开始播放#";
+		}
 	} else if (a === 1) {
 		if (time <= coke) {
 			localStorage.setItem("yzxtg", time + 432000);
@@ -73,8 +86,13 @@ function play(a) {
 					diz = diz.substring(0, url);
 				}
 			}
-			document.getElementById("url").value = diz;
-			document.getElementById("player").src = jkv + diz;
+			if (dcn.test(dzz)) {
+				document.getElementById("url").value = dzz;
+				window.open("https://movie.heheda.top/so.php?wd=" + dzz, '_blank');
+			} else {
+				document.getElementById("url").value = diz;
+				document.getElementById("player").src = jkv + diz;
+			}
 			music.pause();
 			music.currentTime = 0;
 			music.play();
@@ -159,17 +177,6 @@ function yztc(n) {
 				icon: 'e'
 			});
 		}
-	}
-}
-
-// 搜索功能
-function sub(m) {
-	sos = document.getElementById("sos").value.trim();
-	if (m === 1) {
-		let subt = document.getElementById("subt");
-		!sos ? subt.disabled = true : subt.disabled = false;
-	} else if (m === 2) {
-		window.open("https://movie.heheda.top/so.php?wd=" + sos, '_blank');
 	}
 }
 
