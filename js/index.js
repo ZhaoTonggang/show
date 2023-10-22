@@ -148,7 +148,7 @@ function yztc(n) {
 			type: 'h',
 			width: '320px',
 			height: '530px',
-			content: '<div class="tipyz"><p class="psy" style="color: red;">为防止恶意访问，需进行身份验证</p><p class="psy">请使用微信扫描下方二维码<br />或搜索微信公众号“一只小彤刚”<br />关注并回复“ysjx”获取验证码</p><p class="psy" style="color: red;">注意:连续5天未使用需重新验证!</p><img alt="图片载入中…" src="https://www.blog.heheda.top/movie/image/wxgzh.jpg" style="width: 300px;" /><input class="form-control input-lg input-group" placeholder="请输入数字验证码" id="wxyzm" oninput="yztc(1)" /><button id="tjyzm" type="button" class="btn btn-info btn-lg btn-block" onclick="yztc(2)" disabled>#验证#</button></div>',
+			content: '<div class="tipyz"><p class="psy" style="color: red;">为防止恶意访问，需进行身份验证</p><p class="psy">请使用微信扫描下方二维码<br />或搜索微信公众号“一只小彤刚”<br />关注并回复“ysjx”获取验证码</p><p class="psy" style="color: red;">注意:连续5天未使用需重新验证!</p><img alt="图片载入中…" src="https://other.heheda.top/movie/image/wxgzh.jpg" style="width: 300px;" /><input class="form-control input-lg input-group" placeholder="请输入数字验证码" id="wxyzm" oninput="yztc(1)" /><button id="tjyzm" type="button" class="btn btn-info btn-lg btn-block" onclick="yztc(2)" disabled>#验证#</button></div>',
 			shadeClose: false,
 			over: false,
 			end: function() {
