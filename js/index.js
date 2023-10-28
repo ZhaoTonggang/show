@@ -1,18 +1,21 @@
+// 严格模式
+"use strict";
 //判断是否为移动设备
 let ismobile = false;
 window.innerWidth <= 550 ? ismobile = true : false;
-
-let music = new Audio("./audio/a1.mp3");
-
-let yzaudio = new Audio("./audio/a2.mp3");
-
+// 载入语音
+const music = new Audio("./audio/a1.mp3");
+const yzaudio = new Audio("./audio/a2.mp3");
 // 服务
-let toke = "1357246824681357";
+const toke = "1357246824681357";
 let coke = localStorage.getItem("yzxtg") || 0;
 let time = Math.round(new Date() / 1000) + Number(toke);
-
 // 获取必要参数
-let title = document.title;
+const title = document.title;
+let diz, yzm, xipid;
+let timeout = null;
+const cdtopbt = document.getElementById("cd-top");
+const cla = document.getElementById("player");
 if (!navigator.share) {
 	document.getElementById("fxbz").style.display = "none";
 	xtip.msg('自动分享函数不受浏览器支持，系统已为您自动禁用相关功能！', {
@@ -21,7 +24,6 @@ if (!navigator.share) {
 		times: 5
 	});
 }
-
 // 禁用浏览器调试
 window.onkeydown = () => {
 	if (window.event && window.event.keyCode == 123) {
@@ -33,30 +35,21 @@ window.onkeydown = () => {
 		return false;
 	}
 }
-
-// 监听屏幕滚动
-window.onscroll = () => {
-	let scro = document.documentElement.scrollTop || document.body.scrollTop;
-	let cla = document.getElementById("player");
-	if (scro >= 500) {
-		cla.classList.add("player-fix");
-	} else {
-		cla.classList.remove("player-fix");
-	}
-}
-
-function play(a) {
+// 功能
+const play = (a) => {
+	let dcn = /^[\u4E00-\u9FA5]+$/;
 	let jko = document.getElementById("jk").selectedIndex;
 	let jkk = document.getElementById("jk").options[jko].value;
 	let jkv = CryptoJS.AES.decrypt(jkk, toke).toString(CryptoJS.enc.Utf8);
+	let dzz = document.getElementById("url");
 	if (a === 0) {
-		dcn = /^[\u4E00-\u9FA5]+$/;
-		dzz = document.getElementById("url").value;
+		dzz = dzz.value;
+		// dzz = document.getElementById("url").value;
 		diz = dzz.replace(/[\u4e00-\u9fa5]|(^\s*)|(\s*$)/g, '');
 		let dbz = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/g;
-		let daz = document.getElementById("ksbf");
-		let dck = document.getElementById("ckbf");
-		let cxl = document.getElementById("cxl");
+		const daz = document.getElementById("ksbf");
+		const dck = document.getElementById("ckbf");
+		const cxl = document.getElementById("cxl");
 		if (dbz.test(diz)) {
 			daz.style.display = "block";
 			dck.style.display = "block";
@@ -135,30 +128,29 @@ function play(a) {
 		}
 	}
 }
-
 // 验证弹窗
-function yztc(n) {
+const yztc = (n) => {
 	if (n === 0) {
 		music.pause();
 		yzaudio.currentTime = 0;
 		yzaudio.pause();
 		yzaudio.play();
 		localStorage.removeItem("yzxtg");
-		xipid = xtip.open({
+		return xipid = xtip.open({
 			type: 'h',
 			width: '320px',
 			height: '530px',
 			content: '<div class="tipyz"><p class="psy" style="color: red;">为防止恶意访问，需进行身份验证</p><p class="psy">请使用微信扫描下方二维码<br />或搜索微信公众号“一只小彤刚”<br />关注并回复“ysjx”获取验证码</p><p class="psy" style="color: red;">注意:连续5天未使用需重新验证!</p><img alt="图片载入中…" src="https://other.heheda.top/movie/image/wxgzh.jpg" style="width: 300px;" /><input class="form-control input-lg input-group" placeholder="请输入数字验证码" id="wxyzm" oninput="yztc(1)" /><button id="tjyzm" type="button" class="btn btn-info btn-lg btn-block" onclick="yztc(2)" disabled>#验证#</button></div>',
 			shadeClose: false,
 			over: false,
-			end: function() {
+			end: () => {
 				yzaudio.pause();
 				music.currentTime = 0;
 				music.play();
 			}
 		});
 	} else if (n === 1) {
-		yzm = document.getElementById("wxyzm").value = document.getElementById("wxyzm").value.replace(/[^\d]/g, '');
+		yzm = document.getElementById("wxyzm").value.replace(/[^\d]/g, '');
 		let yzs = document.getElementById("tjyzm");
 		yzm != "" ? yzs.disabled = false : yzs.disabled = true;
 	} else if (n === 2) {
@@ -179,9 +171,8 @@ function yztc(n) {
 		}
 	}
 }
-
 //其他按钮
-function othbut(b) {
+const othbut = (b) => {
 	if (b === 0) {
 		window.open(
 			"https://openai.weixin.qq.com/webapp/NlFdeGGV6J4GfwxPImLX9mxGXzkSHg?robotName=%E5%BD%B1%E8%A7%86%E8%A7%A3%E6%9E%90"
@@ -196,7 +187,7 @@ function othbut(b) {
 			content: '<img alt="赞赏码" src="./image/zsm.jpg" style="width: 100%;height: auto;"/>',
 			over: false,
 			shadeClose: false,
-			end: function() {
+			end: () => {
 				music.pause();
 				music.currentTime = 0;
 				music.play();
@@ -226,38 +217,61 @@ function othbut(b) {
 	}
 }
 setTimeout("othbut(1)", 500);
-
 // 通知
-function sendNotification() {
+const sendNotification = () => {
 	new Notification(title, {
 		body: '久违了我的朋友，欢迎您的访问！全网视频免费看，宅男必备，喜欢别忘了收藏！',
 		icon: './icons/128x128.png'
 	})
 }
-
 if ("Notification" in window) {
 	if (window.Notification.permission == "granted") {
 		sendNotification();
 	} else if (window.Notification.permission != "denied") {
-		window.Notification.requestPermission(function(permission) {
+		window.Notification.requestPermission((permission) => {
 			sendNotification();
 		});
 	}
 }
-
 // 网站标题自动判断
-function istitle() {
+window.addEventListener('visibilitychange', () => {
 	if (document.hidden) {
-		//当窗口不可见
+		//窗口不可见
 		document.title = '(つ ェ ⊂)我藏好了哦~';
 	} else {
-		//当窗口可见
+		//窗口可见
 		document.title = '(*゜ロ゜)ノ被发现了~';
-		setTimeout("document.title=title", 3000);
+		setTimeout(() => {
+			document.title = title;
+		}, 3000);
+	};
+});
+//返回顶部
+const cdTop = () => {
+	window.scrollY = 0;
+	window.pageYOffset = 0;
+	document.documentElement.scrollTop = 0;
+};
+// 监听屏幕滚动
+window.addEventListener('scroll', () => {
+	if (timeout !== null) {
+		clearTimeout(timeout);
 	}
-}
-document.addEventListener('visibilitychange', istitle);
-
+	timeout = setTimeout(() => {
+		let scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+		// 返回顶部
+		if (scrollTop > 100) {
+			cdtopbt.className = "cdtopVis";
+		} else {
+			cdtopbt.className = "cdtopHid";
+		};
+		if (scrollTop > 400) {
+			cla.classList.add("player-fix");
+		} else {
+			cla.classList.remove("player-fix");
+		};
+	}, 500);
+});
 // 版权信息
 console.log("%c赵彤刚%c版权所有", "font-size:15px;padding:3px;color:white;background:#023047",
 	"font-size:15px;padding:3px;color:white;background:#219EBC");

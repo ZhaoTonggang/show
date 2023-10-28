@@ -1,11 +1,15 @@
-*,
-html {
+* {
 	padding: 0;
 	margin: 0;
+	list-style: none;
+	user-select: none;
+	scroll-behavior: smooth;
+	font-family: YouYuan, KaiTi, Helvetica, Arial, sans-serif;
+	font-weight: bold !important;
+	letter-spacing: 1px !important;
 }
 
 body {
-	font-family: YouYuan, KaiTi, Helvetica, Arial, sans-serif;
 	background: #202124 url(../image/bg.jpg) repeat fixed center/150%;
 }
 
@@ -45,22 +49,18 @@ body,
 .language {
 	text-align: center;
 	color: white;
-	font-weight: bold;
 }
 
 .language1 {
 	text-align: left;
 	padding-left: 20px;
 	color: white;
-	font-weight: bold;
 }
 
 .btn2 {
 	display: inline-block;
 	vertical-align: top;
-	font-family: YouYuan, KaiTi, Helvetica, Arial, sans-serif;
 	font-size: 14px;
-	font-weight: bold;
 	line-height: 1;
 	text-align: center;
 	text-decoration: none;
@@ -95,30 +95,28 @@ body,
 	margin: 0 auto;
 	font-size: 20px;
 	text-align: center;
-	font-family: YouYuan, KaiTi, Helvetica, Arial, sans-serif;
-	font-weight: bold;
 	color: white;
 }
 
 #kj {
 	height: 452px;
-}
-
-#jk option {
-	font-weight: bold;
+	background-color: #5bc0de;
+	position: inherit;
+	border: none;
+	border-radius: 10px;
 }
 
 #player {
-	background: #000 url(../image/loding.gif) no-repeat center/cover;
+	background: #6cf url(../image/loding.gif) no-repeat center/cover;
 	border-radius: 10px;
 	display: block;
-	border: 0;
+	border: none;
+	transition: all 1s;
 }
 
 .player {
 	width: 100%;
 	height: 400px;
-	transition: 0.5s linear;
 }
 
 .player-fix {
@@ -126,17 +124,14 @@ body,
 	height: 200px;
 	position: fixed;
 	right: 10px;
-	bottom: 10px;
+	top: 10px;
 	z-index: 999;
-	transition: 0.5s linear;
 }
 
 .pst,
 .psy,
 #hitokoto {
-	margin: 0;
 	text-align: center;
-	font-weight: bold;
 }
 
 .pst {
@@ -150,6 +145,10 @@ body,
 
 #hitokoto {
 	color: black;
+	position: absolute;
+	right: 0;
+	left: 0;
+	bottom: 8px;
 }
 
 .input-group {
@@ -167,27 +166,57 @@ body,
 }
 
 .title {
-	margin: 0;
 	padding: 10px 0;
 	color: white;
 	text-align: center;
-	font-weight: bold;
 }
 
 .copy {
 	text-align: center;
 	color: white;
-	font-weight: bold;
 	padding-bottom: 10px;
-}
-
-.copy p {
-	margin: 0;
 }
 
 .tipyz {
 	text-align: center;
 	padding: 10px;
+}
+
+.btn-block {
+	margin-top: 10px;
+}
+
+/*返回顶部按钮*/
+#cd-top {
+	z-index: 99999;
+	display: block;
+	border-radius: 50px;
+	height: 50px;
+	width: 50px;
+	position: fixed;
+	right: 10px;
+	cursor: pointer;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
+	transition: all 1s;
+}
+
+#cd-top:hover {
+	background: #008cff url(../image/cd-top.png) no-repeat center/70%;
+	transform: rotateZ(360deg);
+}
+
+.cdtopHid {
+	background: #008cff url(../image/cd-top.png) no-repeat center/70%;
+	transform: rotateY(360deg);
+	top: -50px;
+}
+
+.cdtopVis {
+	background: aqua url(../image/cdtop.png) no-repeat center/60%;
+	top: 90%;
 }
 
 /* 滚动条 */
