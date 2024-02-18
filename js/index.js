@@ -5,17 +5,18 @@ let ismobile = false;
 window.innerWidth <= 550 ? ismobile = true : false;
 // 载入语音
 const music = new Audio("./audio/a1.mp3");
-const yzaudio = new Audio("./audio/a2.mp3");
 // 服务
 const toke = "1357246824681357";
-let coke = localStorage.getItem("yzxtg") || 0;
-let time = Math.round(new Date() / 1000) + Number(toke);
 // 获取必要参数
 const title = document.title;
-let diz, yzm, xipid;
+let diz, dzz, yzm, xipid;
 let timeout = null;
 const cdtopbt = document.getElementById("cd-top");
 const cla = document.getElementById("player");
+const dcn = /^[\u4E00-\u9FA5]+$/;
+const dbz = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/g;
+const gjk = document.getElementById("jk");
+const gdz = document.getElementById("url");
 if (!navigator.share) {
 	document.getElementById("fxbz").style.display = "none";
 	xtip.msg('自动分享函数不受浏览器支持，系统已为您自动禁用相关功能！', {
@@ -37,16 +38,12 @@ window.onkeydown = () => {
 }
 // 功能
 const play = (a) => {
-	let dcn = /^[\u4E00-\u9FA5]+$/;
-	let jko = document.getElementById("jk").selectedIndex;
-	let jkk = document.getElementById("jk").options[jko].value;
+	let jko = gjk.selectedIndex;
+	let jkk = gjk.options[jko].value;
 	let jkv = CryptoJS.AES.decrypt(jkk, toke).toString(CryptoJS.enc.Utf8);
-	let dzz = document.getElementById("url");
 	if (a === 0) {
-		dzz = dzz.value;
-		// dzz = document.getElementById("url").value;
+		dzz = gdz.value;
 		diz = dzz.replace(/[\u4e00-\u9fa5]|(^\s*)|(\s*$)/g, '');
-		let dbz = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/g;
 		const daz = document.getElementById("ksbf");
 		const dck = document.getElementById("ckbf");
 		const cxl = document.getElementById("cxl");
@@ -64,159 +61,95 @@ const play = (a) => {
 			daz.innerText = "#开始播放#";
 		}
 	} else if (a === 1) {
-		if (time <= coke) {
-			localStorage.setItem("yzxtg", time + 432000);
-			coke = localStorage.getItem("yzxtg");
-			let url = diz.indexOf("?");
-			let mgurl = diz.indexOf("migu");
-			if (mgurl != -1) {
-				let migu = diz.indexOf("&");
-				if (migu != -1) {
-					diz = diz.substring(0, migu);
-				}
-			} else {
-				if (url != -1) {
-					diz = diz.substring(0, url);
-				}
+		let url = diz.indexOf("?");
+		let mgurl = diz.indexOf("migu");
+		if (mgurl != -1) {
+			let migu = diz.indexOf("&");
+			if (migu != -1) {
+				diz = diz.substring(0, migu);
 			}
-			if (dcn.test(dzz)) {
-				document.getElementById("url").value = dzz;
-				window.open("https://movie.heheda.top/so.php?wd=" + dzz, '_blank');
-			} else {
-				document.getElementById("url").value = diz;
-				document.getElementById("player").src = jkv + diz;
-			}
-			music.pause();
-			music.currentTime = 0;
-			music.play();
 		} else {
-			yztc(0);
-		}
-	} else if (a === 2) {
-		if (time <= coke) {
-			localStorage.setItem("yzxtg", time + 432000);
-			coke = localStorage.getItem("yzxtg");
-			let url = diz.indexOf("?");
-			let mgurl = diz.indexOf("migu");
-			if (mgurl != -1) {
-				let migu = diz.indexOf("&");
-				if (migu != -1) {
-					diz = diz.substring(0, migu);
-				}
-			} else {
-				if (url != -1) {
-					diz = diz.substring(0, url);
-				}
+			if (url != -1) {
+				diz = diz.substring(0, url);
 			}
+		}
+		if (dcn.test(dzz)) {
+			document.getElementById("url").value = dzz;
+			window.open("https://movie.heheda.top/so.php?wd=" + dzz, '_blank');
+		} else {
 			document.getElementById("url").value = diz;
-			xtip.open({
-				type: 'u',
-				content: jkv + diz,
-				title: '窗口播放',
-				width: ismobile ? '90%' : '850px',
-				height: ismobile ? '50%' : '500px',
-				min: true,
-				max: true,
-				closeBtn: true,
-				shade: false
-			});
+			document.getElementById("player").src = jkv + diz;
+		}
+		music.pause();
+		music.currentTime = 0;
+		music.play();
+	} else if (a === 2) {
+		let url = diz.indexOf("?");
+		let mgurl = diz.indexOf("migu");
+		if (mgurl != -1) {
+			let migu = diz.indexOf("&");
+			if (migu != -1) {
+				diz = diz.substring(0, migu);
+			}
+		} else {
+			if (url != -1) {
+				diz = diz.substring(0, url);
+			}
+		}
+		document.getElementById("url").value = diz;
+		xtip.open({
+			type: 'u',
+			content: jkv + diz,
+			title: '窗口播放',
+			width: ismobile ? '90%' : '850px',
+			height: ismobile ? '50%' : '500px',
+			min: true,
+			max: true,
+			closeBtn: true,
+			shade: false
+		});
+		music.pause();
+		music.currentTime = 0;
+		music.play();
+	}
+}
+//赞赏码
+const othbta = () => {
+	xtip.open({
+		type: 'h',
+		width: ismobile ? '300px' : '500px',
+		height: ismobile ? '300px' : '500px',
+		content: '<img alt="赞赏码" src="./image/zsm.jpg" style="width: 100%;height: auto;"/>',
+		over: false,
+		shadeClose: false,
+		end: () => {
 			music.pause();
 			music.currentTime = 0;
 			music.play();
-		} else {
-			yztc(0);
-		}
-	}
+		},
+	});
 }
-// 验证弹窗
-const yztc = (n) => {
-	if (n === 0) {
-		music.pause();
-		yzaudio.currentTime = 0;
-		yzaudio.pause();
-		yzaudio.play();
-		localStorage.removeItem("yzxtg");
-		return xipid = xtip.open({
-			type: 'h',
-			width: '320px',
-			height: '530px',
-			content: '<div class="tipyz"><p class="psy" style="color: red;">为防止恶意访问，需进行身份验证</p><p class="psy">请使用微信扫描下方二维码<br />或搜索微信公众号“一只小彤刚”<br />关注并回复“ysjx”获取验证码</p><p class="psy" style="color: red;">注意:连续5天未使用需重新验证!</p><img alt="图片载入中…" src="https://other.heheda.top/movie/image/wxgzh.jpg" style="width: 300px;" /><input class="form-control input-lg input-group" placeholder="请输入数字验证码" id="wxyzm" oninput="yztc(1)" /><button id="tjyzm" type="button" class="btn btn-info btn-lg btn-block" onclick="yztc(2)" disabled>#验证#</button></div>',
-			shadeClose: false,
-			over: false,
-			end: () => {
-				yzaudio.pause();
-				music.currentTime = 0;
-				music.play();
-			}
-		});
-	} else if (n === 1) {
-		yzm = document.getElementById("wxyzm").value.replace(/[^\d]/g, '');
-		let yzs = document.getElementById("tjyzm");
-		yzm != "" ? yzs.disabled = false : yzs.disabled = true;
-	} else if (n === 2) {
-		if (yzm == 2276358 || yzm == 4680235 || yzm == 6825467) {
-			yzaudio.pause();
-			music.currentTime = 0;
-			music.play();
-			localStorage.setItem("yzxtg", time + 432000);
-			coke = localStorage.getItem("yzxtg");
-			xtip.msg('验证码正确，请点击开始播放！', {
-				icon: 's'
-			});
-			xtip.close(xipid);
-		} else {
-			xtip.msg('验证码错误，请重试！', {
-				icon: 'e'
-			});
-		}
-	}
+//弹出赞赏码
+setTimeout("othbta()", 500);
+//分享功能
+const othbts = () => {
+	navigator.share({
+		title: title,
+		url: window.location.href,
+		text: '全网视频免费看，宅男必备！'
+	});
 }
-//其他按钮
-const othbut = (b) => {
-	if (b === 0) {
-		window.open(
-			"https://openai.weixin.qq.com/webapp/NlFdeGGV6J4GfwxPImLX9mxGXzkSHg?robotName=%E5%BD%B1%E8%A7%86%E8%A7%A3%E6%9E%90"
-		);
-	}
-	// 赞赏码
-	else if (b === 1) {
-		xtip.open({
-			type: 'h',
-			width: ismobile ? '300px' : '500px',
-			height: ismobile ? '300px' : '500px',
-			content: '<img alt="赞赏码" src="./image/zsm.jpg" style="width: 100%;height: auto;"/>',
-			over: false,
-			shadeClose: false,
-			end: () => {
-				music.pause();
-				music.currentTime = 0;
-				music.play();
-			},
-		});
-	} else if (b === 2) {
-		window.open("https://wj.qq.com/s2/9759503/e350/");
-	}
-	// 下载APP
-	else if (b === 3) {
-		xtip.open({
-			type: 'h',
-			width: ismobile ? '90%' : '55%',
-			height: '120px',
-			content: '<div style="padding:5px"><button type="button" onclick="othbut(30)" class="btn btn-success btn-lg btn-block">#安卓版本#</button><button type="button" onclick="xzapp-ios()" class="btn btn-success btn-lg btn-block" disabled>#IOS版本#</button></div>',
-			title: false,
-			over: false,
-		});
-	} else if (b === 30) {
-		window.open("./app/ysjx.apk");
-	} else if (b === 4) {
-		navigator.share({
-			title: title,
-			url: window.location.href,
-			text: '全网视频免费看，宅男必备！'
-		});
-	}
+// 下载APP
+const dapp = () => {
+	xtip.open({
+		type: 'h',
+		width: ismobile ? '90%' : '55%',
+		height: '120px',
+		content: '<div style="padding:5px"><button type="button" onclick="othbut(30)" class="btn btn-success btn-lg btn-block">#安卓版本#</button><button type="button" onclick="xzapp-ios()" class="btn btn-success btn-lg btn-block" disabled>#IOS版本#</button></div>',
+		title: false,
+		over: false,
+	});
 }
-setTimeout("othbut(1)", 500);
 // 通知
 const sendNotification = () => {
 	new Notification(title, {

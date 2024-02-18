@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-
 	<head>
 		<title>风影阁解析 - 免费VIP视频解析平台</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -41,14 +40,14 @@
 			<div id="kj" class="panel panel-default panel-body">
 				<iframe title="视频播放器" id="player" class="player" allow="fullscreen;autoplay"
 					sandbox="allow-scripts allow-same-origin">
-					<h1>抱歉，出了一点意外，您的浏览器可能不支持此框架！</h1>
+					<h1>抱歉，您的浏览器可能不支持此框架！</h1>
 				</iframe>
 				<p id="hitokoto">(*゜ロ゜)ノ一言加载中...</p>
 			</div>
 			<div class="col-md-14 column">
 				<div class="input-group" style="width: 100%;">
 					<span class="input-group-addon input-lg">名称或地址</span>
-					<input class="form-control input-lg" type="search" placeholder="手机请长按粘贴/电脑请使用“Ctrl+V”粘贴" id="url"
+					<input class="form-control input-lg" type="search" placeholder="请输入链接地址或名称关键字" id="url"
 						oninput="play(0)" />
 				</div>
 				<div class="input-group" style="width: 100%;" id="cxl">
@@ -75,11 +74,12 @@
                     onclick="dihejk2()">#全屏放映#</button> -->
 					<!-- <button type="button" class="btn btn-info btn-lg btn-block" onclick="demo()">#下载视频#</button> -->
 					<button id="fxbz" type="button" class="btn btn-info btn-lg btn-block"
-						onclick="othbut(4)">#分享本站#</button>
-					<button id="gzfk" type="button" class="btn btn-info btn-lg btn-block"
-						onclick="othbut(0)">#故障反馈#</button>
+						onclick="othbts()">#分享本站#</button>
+					<a class="btn btn-info btn-lg btn-block" target="_blank"
+						href="https://openai.weixin.qq.com/webapp/NlFdeGGV6J4GfwxPImLX9mxGXzkSHg?robotName=%E5%BD%B1%E8%A7%86%E8%A7%A3%E6%9E%90">
+						#故障反馈#</a>
 					<button id="zzbz" type="button" class="btn btn-info btn-lg btn-block"
-						onclick="othbut(1)">#赞助本站#</button>
+						onclick="othbta()">#赞助本站#</button>
 				</div>
 				<br />
 				<table class="table table-bordered">
@@ -164,9 +164,8 @@
 									href="https://music-api.heheda.top/">云音乐API</a>
 								<a target="_blank" class="btn2" title="音乐解锁"
 									href="https://unlock-music.heheda.top/">音乐解锁</a>
-								<a target="_blank" class="btn2" title="Layui中文网"
-									href="https://layui.heheda.top/">Layui中文网</a>
-								<a target="_blank" class="btn2" title="在线畅玩小霸王" href="https://nes.heheda.top/">红白之家</a>
+								<a target="_blank" class="btn2" title="在线畅玩小霸王"
+									href="https://nes.heheda.top/">红白机游戏盒</a>
 								<a target="_blank" class="btn2" title="植物大战僵尸网页版"
 									href="https://pvz.heheda.top/">植物大战僵尸</a>
 								<a target="_blank" class="btn2" title="短视频去水印"
@@ -178,21 +177,21 @@
 				<div class="copy">
 					<p>本站使用开源框架<a href="https://www.bootcss.com/" target="_blank" title="Bootstrap中文网">Bootstrap</a>开发
 					</p>
-					<p><a href="./" title="风影阁解析">风影阁解析</a>(v2.2.3) © Powered By <a href="https://my.heheda.top/"
+					<p><a href="./" title="风影阁解析">风影阁解析</a>(v2.3.0) © Powered By <a href="https://my.heheda.top/"
 							target="_blank" title="赵彤刚的小屋">赵彤刚</a></p>
 				</div>
 			</div>
 			<div id="cd-top" class="cdtopHid" onclick="cdTop()" title="返回顶部">回到顶部</div>
 			<!--弹窗组件-->
-			<script src="./lib/xtipter/js/xtiper.lite.js"></script>
+			<script async src="./lib/xtipter/js/xtiper.lite.js"></script>
 			<!-- 页面逻辑 -->
-			<script src="./js/index.js"></script>
+			<script async src="./js/index.js"></script>
 			<!-- 密钥参数 -->
-			<script src="./lib/crypto-js/crypto-js.min.js"></script>
+			<script async src="./lib/crypto-js/crypto-js.min.js"></script>
 			<!--一言API-->
-			<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+			<script async src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
 			<!--PWA渐进式应用配置-->
-			<script type="module" async="async">
+			<script async type="module">
 				import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
 				const el = document.createElement('pwa-update');
 				document.body.appendChild(el);
