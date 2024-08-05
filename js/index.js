@@ -205,6 +205,17 @@ window.addEventListener('scroll', () => {
 		};
 	}, 500);
 });
+// 谷歌广告
+window.googletag = window.googletag || {
+	cmd: []
+};
+googletag.cmd.push(function() {
+	googletag.defineSlot('/23121106939/shoe.heheda', ['fluid'], 'div-gpt-ad-1722827590159-0').addService(
+		googletag.pubads());
+	googletag.pubads().enableSingleRequest();
+	googletag.pubads().collapseEmptyDivs();
+	googletag.enableServices();
+});
 // 版权信息
 console.log("%c赵彤刚%c版权所有", "font-size:15px;padding:3px;color:white;background:#023047",
 	"font-size:15px;padding:3px;color:white;background:#219EBC");
