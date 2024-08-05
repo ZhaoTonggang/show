@@ -215,6 +215,7 @@ googletag.cmd.push(function() {
 	googletag.pubads().enableSingleRequest();
 	googletag.pubads().collapseEmptyDivs();
 	googletag.enableServices();
+	googletag.display('div-gpt-ad-1722827590159-0');
 });
 // 版权信息
 console.log("%c赵彤刚%c版权所有", "font-size:15px;padding:3px;color:white;background:#023047",
