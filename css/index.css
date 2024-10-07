@@ -272,3 +272,8 @@ body,
 		background-position: 0% 50%;
 	}
 }
+
+/* 关闭空广告 */
+ins.adsbygoogle[data-ad-status="unfilled"] {
+	display: none !important;
+}
