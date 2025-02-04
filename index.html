@@ -9,8 +9,6 @@
 			content="风影阁,vip视频解析,vip视频在线解析,vip解析,万能vip视频解析,vip视频全能解析,vip视频,手机vip视频解析,手机在线解析vip视频,优酷vip解析,爱奇艺vip解析,腾讯vip解析,乐视vip解析,芒果vip解析,vip音乐解析">
 		<meta name="description"
 			content="风影阁,VIP视频免费看，在线解析，vip视频解析，优酷vip解析，爱奇艺vip解析，腾讯vip解析，乐视vip解析，全网影视vip，芒果vip解析方便广大用户VIP视频服务，最新电影最新电视剧在线免费观看">
-		<!-- bootstrap框架 CSS -->
-		<link href="./lib/bootstrap-3.4.1/css/bootstrap.min.css" rel="stylesheet" />
 		<!-- 核心样式框架 -->
 		<link href="./css/index.css" rel="stylesheet" />
 		<!-- 弹窗组件 -->
@@ -31,141 +29,106 @@
 	</head>
 
 	<body>
-		<div class="col-xs-12 col-sm-10 col-md-8 col-lg-7 center-block bgdiv" style="float: none;">
+		<div class="bgdiv">
 			<h1 class="title">风影阁解析</h1>
-			<!-- 谷歌广告 -->
-			<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3670070169085381"
-				data-ad-slot="8455529383" data-ad-format="auto" data-full-width-responsive="true"></ins>
-			<script>
-				(adsbygoogle = window.adsbygoogle || []).push({});
-			</script>
 			<section class="section1">
 				<p class="pst">全网最稳定，更新最快的视频解析网站，实时纠错，实时解析！</p>
 				<p class="pst">免费看全网视频，无广告，无弹窗！若播放异常，请刷新或更换接口后重试！</p>
 			</section>
-			<div id="kj" class="panel panel-default panel-body">
+			<div id="kj">
 				<iframe title="视频播放器" id="player" class="player" allow="fullscreen;autoplay"
-					sandbox="allow-scripts allow-same-origin">
+					sandbox="allow-scripts allow-same-origin" src="./ads/">
 					<h1>抱歉，您的浏览器可能不支持此框架！</h1>
 				</iframe>
 				<p id="hitokoto">(*゜ロ゜)ノ一言加载中...</p>
 			</div>
-			<div class="col-md-14 column">
-				<div class="input-group" style="width: 100%;">
-					<span class="input-group-addon input-lg">名称或地址</span>
-					<input class="form-control input-lg" type="search" placeholder="请输入链接地址或名称关键字" id="url"
-						oninput="play(0)" />
-				</div>
-				<div class="input-group" style="width: 100%;" id="cxl">
-					<span class="input-group-addon input-lg">请选择线路</span>
-					<select class="form-control input-lg" id="jk">
-						<option value="U2FsdGVkX1+UD0bha0mLCChiKsHDvOQJHwaATilPAYM//C7dbEogXf+zNnnm5gA9" selected>
-							线路〇</option>
-						<option value="U2FsdGVkX184H+CxSKNY1W6aXD/wEOJfYXeu0UNFI3Tan9wuos8dRLuwdgjB0M08">
-							线路壹</option>
-						<option value="U2FsdGVkX1+dKKk+2n3WUnC55eOncOb/oXYvcCNdv/CdcSPkbYIy9XvSGxbggBwt">线路贰</option>
-						<option value="U2FsdGVkX18mynSrnmuMKMtKfq4DhzwkIyTkjljnR8a/y4gQeQtzMCNe4s3fKJOM">线路叁</option>
-						<option value="U2FsdGVkX19LY9dT6TjfRaUv9BrBS++/d8LpdbnZV2nMHHY3UGtcUYCX/jkrX8TI">线路肆</option>
-					</select>
-				</div>
-				<div>
-					<button id="ksbf" type="button" class="btn btn-info btn-lg btn-block"
-						onclick="play(1)">#开始播放#</button>
-					<button id="ckbf" type="button" class="btn btn-info btn-lg btn-block"
-						onclick="play(2)">#窗口播放#</button>
-					<!-- <button id="subt" type="button" class="btn btn-info btn-lg btn-block" onclick="sub(2)">#开始搜索#</button> -->
-					<!-- <button id="qpbf" type="button" class="btn btn-info btn-lg btn-block"
+			<div class="input-group">
+				<span class="span">名称或地址</span>
+				<input class="control" type="search" placeholder="请输入链接地址或名称关键字" id="url" oninput="play(0)" />
+			</div>
+			<div class="input-group" id="cxl">
+				<span class="span">请选择线路</span>
+				<select class="control" id="jk">
+					<option value="U2FsdGVkX1+UD0bha0mLCChiKsHDvOQJHwaATilPAYM//C7dbEogXf+zNnnm5gA9" selected>
+						线路〇</option>
+					<option value="U2FsdGVkX184H+CxSKNY1W6aXD/wEOJfYXeu0UNFI3Tan9wuos8dRLuwdgjB0M08">
+						线路壹</option>
+					<option value="U2FsdGVkX1+dKKk+2n3WUnC55eOncOb/oXYvcCNdv/CdcSPkbYIy9XvSGxbggBwt">线路贰</option>
+					<option value="U2FsdGVkX18mynSrnmuMKMtKfq4DhzwkIyTkjljnR8a/y4gQeQtzMCNe4s3fKJOM">线路叁</option>
+					<option value="U2FsdGVkX19LY9dT6TjfRaUv9BrBS++/d8LpdbnZV2nMHHY3UGtcUYCX/jkrX8TI">线路肆</option>
+				</select>
+			</div>
+			<div>
+				<button id="ksbf" type="button" class="btn" onclick="play(1)">#开始播放#</button>
+				<button id="ckbf" type="button" class="btn" onclick="play(2)">#窗口播放#</button>
+				<!-- <button id="subt" type="button" class="btn" onclick="sub(2)">#开始搜索#</button> -->
+				<!-- <button id="qpbf" type="button" class="btn"
                     onclick="dihejk2()">#全屏放映#</button> -->
-					<!-- <button type="button" class="btn btn-info btn-lg btn-block" onclick="demo()">#下载视频#</button> -->
-					<button id="fxbz" type="button" class="btn btn-info btn-lg btn-block"
-						onclick="othbts()">#分享本站#</button>
-					<a class="btn btn-info btn-lg btn-block" target="_blank"
-						href="https://openai.weixin.qq.com/webapp/NlFdeGGV6J4GfwxPImLX9mxGXzkSHg?robotName=%E5%BD%B1%E8%A7%86%E8%A7%A3%E6%9E%90">
-						#故障反馈#</a>
-					<button id="zzbz" type="button" class="btn btn-info btn-lg btn-block"
-						onclick="othbta()">#赞助本站#</button>
-				</div>
-				<br />
-				<table class="table table-bordered">
-					<tr>
-						<td>
-							<p class="tita">快速访问:</p>
-							<div class="language">
-								<a class="btn2" href="https://www.iqiyi.com/" target="_blank">爱奇艺</a>
-								<a class="btn2" href="https://v.qq.com/" target="_blank">腾讯视频</a>
-								<a class="btn2" href="https://www.mgtv.com/" target="_blank">芒果TV</a>
-								<a class="btn2" href="https://www.youku.com/" target="_blank">优酷视频</a>
-								<a class="btn2" href="https://www.1905.com/" target="_blank">M1905</a>
-								<a class="btn2" href="https://www.ixigua.com/" target="_blank">西瓜视频</a>
-								<a class="btn2" href="https://www.cctv.com/" target="_blank">CCTV</a>
-								<a class="btn2" href="https://www.le.com/" target="_blank">乐视视频</a>
-								<a class="btn2" href="https://tv.sohu.com/" target="_blank">搜狐视频</a>
-								<a class="btn2" href="https://www.pptv.com/" target="_blank">PPTV聚力</a>
-								<a class="btn2" href="https://www.bilibili.com/" target="_blank">哔哩哔哩</a>
-								<a class="btn2" href="https://www.migu.cn/" target="_blank">咪咕视频</a>
-								<a class="btn2" href="https://www.douyin.com/" target="_blank">抖音</a>
-								<a class="btn2" href="https://www.acfun.cn/" target="_blank">AcFun</a>
-							</div>
-							<!-- 谷歌广告 -->
-							<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3670070169085381"
-								data-ad-slot="8455529383" data-ad-format="auto" data-full-width-responsive="true"></ins>
-							<script>
-								(adsbygoogle = window.adsbygoogle || []).push({});
-							</script>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<p class="tita">使用说明:</p>
-							<div class="language1">
-								<p>第&nbsp;1&nbsp;步：进入各大视频网站，找到想要观看的视频，然后复制链接（浏览器上的视频地址）。</p>
-								<p>第&nbsp;2&nbsp;步：将复制的链接粘贴到本站播放地址，并点击“#开始播放#”按钮。</p>
-								<p>第&nbsp;3&nbsp;步：等待解析完成，即可免费观看相应视频内容。</p>
-								<p style="color: red;text-align: center;">
-									注意：本站视频均来自第三方，请勿相信视频中出现的博彩广告，本站不接广告，也不对广告内容负责，如发现广告，请点击上方“#故障反馈#”转人工解决！</p>
-							</div>
-							<!-- 谷歌广告 -->
-							<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3670070169085381"
-								data-ad-slot="8455529383" data-ad-format="auto" data-full-width-responsive="true"></ins>
-							<script>
-								(adsbygoogle = window.adsbygoogle || []).push({});
-							</script>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<p class="tita">窗口播放:</p>
-							<div class="language">
-								<p>您可以通过此功能开启多线程播放模式，该功能允许您使用多个独立的窗口观看不同的内容！您可以自由的将每个窗口最小化或者最大化！</p>
-								<p style="color: red;">注意：窗口播放模式中，视频播放器内置的全屏播放功能将失效！</p>
-							</div>
-							<!-- 谷歌广告 -->
-							<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3670070169085381"
-								data-ad-slot="8455529383" data-ad-format="auto" data-full-width-responsive="true"></ins>
-							<script>
-								(adsbygoogle = window.adsbygoogle || []).push({});
-							</script>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<p class="tita">知识产权:</p>
-							<div class="language1">
-								<p>1.本站不存储任何影视资源，也不做商业运营，只提供影视检索服务</p>
-								<p>2.本站使用到的所有算法，均来自国外技术论坛以及Github开源社区</p>
-								<p>3.本站仅供互联网开发测试和学习交流，无实质性服务</p>
-							</div>
-							<button type="button" onclick="othbut(2)"
-								class="btn btn-info btn-lg btn-block">#侵权投诉#</button>
-							<!-- 谷歌广告 -->
-							<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3670070169085381"
-								data-ad-slot="8455529383" data-ad-format="auto" data-full-width-responsive="true"></ins>
-							<script>
-								(adsbygoogle = window.adsbygoogle || []).push({});
-							</script>
-						</td>
-					</tr>
-					<!-- <tr>
+				<!-- <button type="button" class="btn" onclick="demo()">#下载视频#</button> -->
+				<button id="fxbz" type="button" class="btn" onclick="othbts()">#分享本站#</button>
+				<a class="btn" target="_blank"
+					href="https://openai.weixin.qq.com/webapp/NlFdeGGV6J4GfwxPImLX9mxGXzkSHg?robotName=%E5%BD%B1%E8%A7%86%E8%A7%A3%E6%9E%90">
+					#故障反馈#</a>
+				<a class="btn" target="_blank" href="./ads/">
+					#广告服务#</a>
+				<button id="zzbz" type="button" class="btn" onclick="othbta()">#赞助本站#</button>
+			</div>
+			<br />
+			<table>
+				<tr>
+					<td>
+						<p class="tita">快速访问:</p>
+						<div class="language">
+							<a class="btn2" href="https://www.iqiyi.com/" target="_blank">爱奇艺</a>
+							<a class="btn2" href="https://v.qq.com/" target="_blank">腾讯视频</a>
+							<a class="btn2" href="https://www.mgtv.com/" target="_blank">芒果TV</a>
+							<a class="btn2" href="https://www.youku.com/" target="_blank">优酷视频</a>
+							<a class="btn2" href="https://www.1905.com/" target="_blank">M1905</a>
+							<a class="btn2" href="https://www.ixigua.com/" target="_blank">西瓜视频</a>
+							<a class="btn2" href="https://www.cctv.com/" target="_blank">CCTV</a>
+							<a class="btn2" href="https://www.le.com/" target="_blank">乐视视频</a>
+							<a class="btn2" href="https://tv.sohu.com/" target="_blank">搜狐视频</a>
+							<a class="btn2" href="https://www.pptv.com/" target="_blank">PPTV聚力</a>
+							<a class="btn2" href="https://www.bilibili.com/" target="_blank">哔哩哔哩</a>
+							<a class="btn2" href="https://www.migu.cn/" target="_blank">咪咕视频</a>
+							<a class="btn2" href="https://www.douyin.com/" target="_blank">抖音</a>
+							<a class="btn2" href="https://www.acfun.cn/" target="_blank">AcFun</a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p class="tita">使用说明:</p>
+						<div class="language1">
+							<p>第&nbsp;1&nbsp;步：进入各大视频网站，找到想要观看的视频，然后复制链接（浏览器上的视频地址）。</p>
+							<p>第&nbsp;2&nbsp;步：将复制的链接粘贴到本站播放地址，并点击“#开始播放#”按钮。</p>
+							<p>第&nbsp;3&nbsp;步：等待解析完成，即可免费观看相应视频内容。</p>
+							<p style="color: red;text-align: center;">
+								注意：本站视频均来自第三方，请勿相信视频中出现的博彩广告，本站不接广告，也不对广告内容负责，如发现广告，请点击上方“#故障反馈#”转人工解决！</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p class="tita">窗口播放:</p>
+						<div class="language">
+							<p>您可以通过此功能开启多线程播放模式，该功能允许您使用多个独立的窗口观看不同的内容！您可以自由的将每个窗口最小化或者最大化！</p>
+							<p style="color: red;">注意：窗口播放模式中，视频播放器内置的全屏播放功能将失效！</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p class="tita">知识产权:</p>
+						<div class="language1">
+							<p>1.本站不存储任何影视资源，也不做商业运营，只提供影视检索服务</p>
+							<p>2.本站使用到的所有算法，均来自国外技术论坛以及Github开源社区</p>
+							<p>3.本站仅供互联网开发测试和学习交流，无实质性服务</p>
+						</div>
+						<button type="button" onclick="othbut(2)" class="btn">#侵权投诉#</button>
+					</td>
+				</tr>
+				<!-- <tr>
 						<td>
 							<p class="tita">下载APP:</p>
 							<div class="language">
@@ -173,47 +136,32 @@
 								<p style="color: red;">注意：暂不支持IOS版本！</p>
 							</div>
 							<button type="button" onclick="othbut(3)"
-								class="btn btn-info btn-lg btn-block">#下载APP#</button>
+								class="btn">#下载APP#</button>
 						</td>
 					</tr> -->
-					<tr>
-						<td>
-							<p class="tita">友情链接:</p>
-							<div class="language">
-								<a target="_blank" class="btn2" title="赵彤刚的博客"
-									href="https://blog.heheda.top/">赵彤刚的博客</a>
-								<a target="_blank" class="btn2" title="赵彤刚的工具箱"
-									href="https://tool.heheda.top/">赵彤刚的工具箱</a>
-								<a target="_blank" class="btn2" title="赵彤刚的小屋" href="https://my.heheda.top/">赵彤刚的小屋</a>
-								<a target="_blank" class="btn2" title="赵彤刚的相册"
-									href="https://photo.heheda.top/">赵彤刚的相册</a>
-								<a target="_blank" class="btn2" title="雅图轩" href="https://picture.heheda.top/">雅图轩</a>
-								<a target="_blank" class="btn2" title="云音乐API"
-									href="https://music-api.heheda.top/">云音乐API</a>
-								<a target="_blank" class="btn2" title="音乐解锁"
-									href="https://unlock-music.heheda.top/">音乐解锁</a>
-								<a target="_blank" class="btn2" title="在线畅玩小霸王"
-									href="https://nes.heheda.top/">红白机游戏盒</a>
-								<a target="_blank" class="btn2" title="植物大战僵尸网页版"
-									href="https://pvz.heheda.top/">植物大战僵尸</a>
-								<a target="_blank" class="btn2" title="短视频去水印"
-									href="https://jiexi.heheda.top/">短视频去水印</a>
-							</div>
-							<!-- 谷歌广告 -->
-							<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3670070169085381"
-								data-ad-slot="8455529383" data-ad-format="auto" data-full-width-responsive="true"></ins>
-							<script>
-								(adsbygoogle = window.adsbygoogle || []).push({});
-							</script>
-						</td>
-					</tr>
-				</table>
-				<div class="copy">
-					<p>本站使用开源框架<a href="https://www.bootcss.com/" target="_blank" title="Bootstrap中文网">Bootstrap</a>开发
-					</p>
-					<p><a href="./" title="风影阁解析">风影阁解析</a>(v2.3.0) © Powered By <a href="https://my.heheda.top/"
-							target="_blank" title="赵彤刚的小屋">赵彤刚</a></p>
-				</div>
+				<tr>
+					<td>
+						<p class="tita">友情链接:</p>
+						<div class="language">
+							<a target="_blank" class="btn2" title="赵彤刚的博客" href="https://blog.heheda.top/">赵彤刚的博客</a>
+							<a target="_blank" class="btn2" title="赵彤刚的工具箱" href="https://tool.heheda.top/">赵彤刚的工具箱</a>
+							<a target="_blank" class="btn2" title="赵彤刚的小屋" href="https://my.heheda.top/">赵彤刚的小屋</a>
+							<a target="_blank" class="btn2" title="赵彤刚的相册" href="https://photo.heheda.top/">赵彤刚的相册</a>
+							<a target="_blank" class="btn2" title="雅图轩" href="https://picture.heheda.top/">雅图轩</a>
+							<a target="_blank" class="btn2" title="云音乐API"
+								href="https://music-api.heheda.top/">云音乐API</a>
+							<a target="_blank" class="btn2" title="音乐解锁"
+								href="https://unlock-music.heheda.top/">音乐解锁</a>
+							<a target="_blank" class="btn2" title="在线畅玩小霸王" href="https://nes.heheda.top/">红白机游戏盒</a>
+							<a target="_blank" class="btn2" title="植物大战僵尸网页版" href="https://pvz.heheda.top/">植物大战僵尸</a>
+							<a target="_blank" class="btn2" title="短视频去水印" href="https://jiexi.heheda.top/">短视频去水印</a>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div class="copy">
+				<p><a href="./" title="风影阁解析">风影阁解析</a>(v2.3.5) © Powered By <a href="https://my.heheda.top/"
+						target="_blank" title="赵彤刚的小屋">赵彤刚</a></p>
 			</div>
 			<div id="cd-top" class="cdtopHid" onclick="cdTop()" title="返回顶部">回到顶部</div>
 			<!--弹窗组件-->
