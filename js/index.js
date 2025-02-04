@@ -5,8 +5,6 @@ let ismobile = false;
 window.innerWidth <= 550 ? ismobile = true : false;
 // 载入语音
 const music = new Audio("./audio/a1.mp3");
-// 服务
-const toke = "1357246824681357";
 // 获取必要参数
 const title = document.title;
 let diz, dzz, yzm, xipid;
@@ -39,8 +37,7 @@ window.onkeydown = () => {
 // 功能
 const play = (a) => {
 	let jko = gjk.selectedIndex;
-	let jkk = gjk.options[jko].value;
-	let jkv = CryptoJS.AES.decrypt(jkk, toke).toString(CryptoJS.enc.Utf8);
+	let jkv = decodeURI(atob(gjk.options[jko].value));
 	if (a === 0) {
 		dzz = gdz.value;
 		diz = dzz.replace(/[\u4e00-\u9fa5]|(^\s*)|(\s*$)/g, '');
