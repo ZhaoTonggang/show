@@ -20,11 +20,10 @@ html {
 }
 
 body {
-	background: #202124 url(../image/bg.jpg) repeat fixed center/150%;
+	background: #202124 url('../image/bg.jpg') repeat fixed center/150%;
 	font-size: 14px;
 	line-height: 1.42857143;
 	color: #333;
-	background-color: #fff
 }
 
 button,

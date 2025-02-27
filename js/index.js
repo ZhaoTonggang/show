@@ -24,16 +24,15 @@ if (!navigator.share) {
 	});
 }
 // 禁用浏览器调试
-window.onkeydown = () => {
-	if (window.event && window.event.keyCode == 123) {
-		event.keyCode = 0;
-		event.returnValue = false;
+document.addEventListener('keydown', (e) => {
+	if (e.key == 'F12') {
 		xtip.msg('禁止非法调试！', {
 			icon: 'w'
 		});
-		return false;
+		return;
 	}
-}
+})
+
 // 功能
 const play = (a) => {
 	let jko = gjk.selectedIndex;
@@ -72,7 +71,7 @@ const play = (a) => {
 		}
 		if (dcn.test(dzz)) {
 			document.getElementById("url").value = dzz;
-			window.open("https://movie.heheda.top/so.php?wd=" + dzz, '_blank');
+			window.open("https://movie.heheda.top/search/?" + dzz + ".html", '_blank');
 		} else {
 			document.getElementById("url").value = diz;
 			document.getElementById("player").src = jkv + diz;
@@ -158,7 +157,7 @@ if ("Notification" in window) {
 	if (window.Notification.permission == "granted") {
 		sendNotification();
 	} else if (window.Notification.permission != "denied") {
-		window.Notification.requestPermission((permission) => {
+		window.Notification.requestPermission(() => {
 			sendNotification();
 		});
 	}
@@ -179,7 +178,6 @@ window.addEventListener('visibilitychange', () => {
 //返回顶部
 const cdTop = () => {
 	window.scrollY = 0;
-	window.pageYOffset = 0;
 	document.documentElement.scrollTop = 0;
 };
 // 监听屏幕滚动
@@ -188,7 +186,7 @@ window.addEventListener('scroll', () => {
 		clearTimeout(timeout);
 	}
 	timeout = setTimeout(() => {
-		let scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+		let scrollTop = window.scrollY || document.documentElement.scrollTop;
 		// 返回顶部
 		if (scrollTop > 100) {
 			cdtopbt.className = "cdtopVis";
@@ -202,6 +200,10 @@ window.addEventListener('scroll', () => {
 		};
 	}, 500);
 });
+// 新版提示
+if (confirm("邀您体验全新观影平台，是否立即前往？") == true) {
+	window.open('https://movie.heheda.top', '_blank')
+}
 // 版权信息
 console.log("%c赵彤刚%c版权所有", "font-size:15px;padding:3px;color:white;background:#023047",
 	"font-size:15px;padding:3px;color:white;background:#219EBC");
